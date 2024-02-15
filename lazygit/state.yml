@@ -1,6 +1,7 @@
 lastupdatecheck: 0
 recentrepos:
-- /Users/jordanh/.config/dotfiles
+- /Users/jordanh/.config
+- /Users/jordanh/.config/kitty
 - /Users/jordanh/eventuk/eventuk-approvalapp-flutter
 startuppopupversion: 5
 customcommandshistory: []
