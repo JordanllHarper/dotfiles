@@ -71,8 +71,6 @@ plugins=(git macos rust adb brew)
 
 source $ZSH/oh-my-zsh.sh
 
-source $ZSH/plugins/zsh-interactive-cd
-
 
 # User configuration
 
