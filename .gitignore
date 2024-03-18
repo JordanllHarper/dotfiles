@@ -1,5 +1,6 @@
 **/github-copilot
 **/lazygit
 .android
+/flutter
 **/tmux/plugins/
 \.oh-my-zsh
