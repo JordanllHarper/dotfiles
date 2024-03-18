@@ -1,3 +1,3 @@
 export XDG_HOME="$HOME/.config/"
 export DOTFILES="$HOME/.config/dotfiles/"
-export BUDGEY_TEST = "$RUSTPROJ/budgey/test"
+export BUDGEY_TEST="$RUST_PROJ/budgey/test/"
