@@ -1,1 +1,1 @@
-alias db="dart run build_runner build --delete-conflicting-outputs"
+alias db="fvm dart run build_runner build --delete-conflicting-outputs"
