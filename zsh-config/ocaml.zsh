@@ -1,1 +1,1 @@
-eval $(opam env)
+eval $(opam config env)
