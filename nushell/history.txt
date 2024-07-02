@@ -1,0 +1,178 @@
+ls
+clear
+ls
+clear
+ls | where size > 10mb
+ls | where size < 10mb
+ls | where type == "dir" 
+clear
+ls
+ls | where type == "dir<\n>"
+ls | where type == "dir"
+ls | where type == "dir"| sort-by modified
+ls | where type == "dir"| sort-by modified | reverse 
+z
+cd .config
+ls
+cd nushell/
+ls
+nvim config.nu
+z
+clear
+source $nu.config-path
+source $nu.env-path
+z
+clear
+ls | first
+ls | first | size
+ls | first | get size
+ls | first | get size | $it * 4
+ls | first | get size | $it.0 * 4
+ls | first | get size | * 4
+ls | first | get size | math product 
+ls | first | get size | $it.1 * 4
+ls | first | size * 4
+ls | first 
+ls | first | $in * 4
+ls | first | get size | $it * 4
+ls | first | get size 
+ls | first | get size * 4
+ls | first 
+ls | first | size * 4
+clear
+ls | first 
+ls | first | get size | $it.1 * 4
+ls | first | get size | $it
+ls | first | get size 
+ls | first | get size | describe
+ls | first | get size | math product 
+ls | first | get size 
+ls | first 
+ls | first | each
+ls | first | each $in
+ls | first | each {$in * 2}
+ls | first | each {$in.size * 2}
+ls | first | $in.size * 2
+ls | first | $in.name
+ls | first | name
+datetime 
+date
+date now
+date to-record
+date now | to-record
+date now | date to-record
+date now | date to-record | $it.day + 2
+date now | date to-record | $in.day + 2
+z notes/
+ls
+z personal/
+z ..
+ls | type == dir
+ls | type == "dir"
+ls | where type == "dir"
+z personal/
+ls
+nvim pay_meeting.md
+ls
+clear
+ls
+ls | table
+ls
+clear
+ls | $in
+clear
+source $nu.env-path
+brew
+clear
+nvim env.nu
+source $nu.env-path
+nvim env.nu
+source $nu.env-path
+$nu.default-config-dir
+ls
+nvim
+clear
+ls
+source $nu.env-path
+$nu.default-config-dir
+nvim
+$nu.default-config-dir | path join "/hi"
+$nu.default-config-dir 
+$nu.default-config-dir | path join 
+$nu.default-config-dir | path join "custom/prompt"
+nvim
+clear
+$nu.default-config-dir | path join "custom/prompt"
+source $nu.env-path
+ls
+clear
+ls
+clear
+ls
+nvim
+source $nu.env-path
+source $nu.env-path1
+source $nu.env-path
+ls
+$nu.default-config-dir | path join "custom/"
+$nu.default-config-dir | path join "custom/" | gdir 
+$nu.default-config-dir | path join "custom/" | ls 
+$nu.default-config-dir | path join "custom/" | ls $in
+$nu.default-config-dir | path join "custom/env" | ls $in
+$nu.default-config-dir | path join "custom/env" | source $in
+$nu.default-config-dir | path join "custom/env" | each {source $in}
+$nu.default-config-dir | path join "custom/env" 
+$nu.default-config-dir | path join "custom/env" | each
+$nu.default-config-dir | path join "custom/env" | each $in
+$nu.default-config-dir | path join "custom/env" | $in
+$nu.default-config-dir | path join "custom/env" 
+$nu.default-config-dir | path join "custom/env" | gdir | each $in 
+$nu.default-config-dir | path join "custom/env" | gdir 
+$nu.default-config-dir | path join "custom/env" | describe
+$nu.default-config-dir | path join "custom/env" | gdir $in
+$nu.default-config-dir | path join "custom/env" | gdir $in | describe
+$nu.default-config-dir | path join "custom/env" | table 
+$nu.default-config-dir | path join "custom/env" | gdir $in | describe
+$nu.default-config-dir | path join "custom/env" | gdir $in 
+$nu.default-config-dir | path join "custom/env" | $in
+$nu.default-config-dir | path join "custom/env" | ls $in
+$nu.default-config-dir | path join "custom/env" | ls $in | describe
+$nu.default-config-dir | path join "custom/env" | ls $in | describe | each
+$nu.default-config-dir | path join "custom/env" | ls $in | describe | each $in
+$nu.default-config-dir | path join "custom/env" | ls $in | each $in
+$nu.default-config-dir | path join "custom/env" | ls $in | each {|in| in | describe }
+$nu.default-config-dir | path join "custom/env" | ls $in | each {|it| describe it }
+$nu.default-config-dir | path join "custom/env" | ls $in | each {|it| describe }
+$nu.default-config-dir | path join "custom/env" | ls $in | each {|it| source }
+$nu.default-config-dir | path join "custom/env" | ls $in | each {|it| source it.name}
+$nu.default-config-dir | path join "custom/env" | ls $in | each {|it| source it}
+$nu.default-config-dir | path join "custom/env" | ls $in 
+$nu.default-config-dir | path join "custom/env" | ls $in | source 
+$nu.default-config-dir | path join "custom/env" | ls $in | describe
+nvim
+source $nu.env-path
+nvim
+source $nu.env-path
+source $nu.env-path
+ls
+clear
+ls
+./mk_conn.sh
+clear
+rm nameless-ui-training/
+rm -rf nameless-ui-training/
+ls
+rm -rf cs-one-kmm/
+rm sudo
+ls
+clear
+ls
+clear
+ls
+clear
+nvim
+clear
+lg
+lazygit
+ls
+z ..
