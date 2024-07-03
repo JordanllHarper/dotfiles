@@ -43,8 +43,13 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend 'opt/homebrew/bin')
 # prompt config
 source ($nu.default-config-dir | path join 'custom/env/prompt.nu')
 
-# commands
+# aliases
 source ($nu.default-config-dir | path join 'custom/aliases.nu' )
+
+# commands
+source ($nu.default-config-dir | path join 'custom/commands.nu' )
 
 # zioxide
 source ~/.zoxide.nu
+
+"Sourced config"
