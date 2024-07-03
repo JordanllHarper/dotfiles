@@ -1,4 +1,6 @@
 # Nushell Config File
+#
+# version = "0.95.0"
 
 # For more information on defining custom themes, see
 # https://www.nushell.sh/book/coloring_and_theming.html
@@ -144,11 +146,11 @@ let light_theme = {
 
 # The default config record. This is where much of your global configuration is setup.
 $env.config = {
-    show_banner: true 
+    show_banner: true # true or false to enable or disable the welcome banner at startup
 
     ls: {
-        use_ls_colors: true 
-        clickable_links: true 
+        use_ls_colors: true # use the LS_COLORS environment variable to colorize output
+        clickable_links: true # enable or disable clickable links. Your terminal has to support links.
     }
 
     rm: {
@@ -158,7 +160,7 @@ $env.config = {
     table: {
         mode: rounded # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
         index_mode: always # "always" show indexes, "never" show indexes, "auto" = show indexes when a table has "index" column
-        show_empty: true 
+        show_empty: true # show 'empty list' and 'empty record' placeholders for command output
         padding: { left: 1, right: 1 } # a left right padding of each column in a table
         trim: {
             methodology: wrapping # wrapping or truncating
@@ -199,10 +201,10 @@ $env.config = {
     }
 
     completions: {
-        case_sensitive: false 
+        case_sensitive: false # set to true to enable case-sensitive completions
         quick: true    # set this to false to prevent auto-selecting completions when only one remains
         partial: true    # set this to false to prevent partial filling of the prompt
-        algorithm: "fuzzy"    # prefix or fuzzy
+        algorithm: "prefix"    # prefix or fuzzy
         external: {
             enable: true # set to false to prevent nushell looking into $env.PATH to find more suggestions, `false` recommended for WSL users as this look up may be very slow
             max_results: 100 # setting it lower can improve completion performance at the cost of omitting some options
@@ -887,4 +889,4 @@ $env.config = {
         }
     ]
 }
-zoxide init nushell | save -f ~/.zoxide.nu
+source ~/.zoxide.nu
