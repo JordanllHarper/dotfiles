@@ -7,4 +7,4 @@ def ldir []  {
 def lfile []  {
     ls | where type == "file"
 }
-}
+
