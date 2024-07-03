@@ -66,9 +66,6 @@ COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git macos rust adb brew flutter)
 
-source $ZSH/oh-my-zsh.sh
-
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
