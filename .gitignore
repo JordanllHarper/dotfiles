@@ -4,4 +4,4 @@
 /flutter
 **/tmux/plugins/
 \.oh-my-zsh
-./nushell/history.txt
+/nushell/history.txt
