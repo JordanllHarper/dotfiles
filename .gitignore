@@ -1,7 +1,5 @@
-**/github-copilot
-**/lazygit
-.android
+/lazygit
+/.android
 /flutter
-**/tmux/plugins/
-\.oh-my-zsh
+/tmux/plugins/
 /nushell/history.txt
