@@ -17,6 +17,10 @@ export ZSH_CUSTOM="$ZSH_CONFIG/custom"
 eval "$(zoxide init zsh)"
 eval "$(opam config env)"
 
+
+# oh my zsh setup
+source "$ZSH_CONFIG/oh-my-zsh-config.zsh"
+
 # ALIASES
 alias nvimcfg='nvim ~/.config/nvim/'
 alias cfg="nvim ~/.config/"
@@ -29,9 +33,8 @@ alias cdb="fvm flutter clean && fvm dart run build_runner build --delete-conflic
 
 # cli
 alias lg="lazygit"
-alias ls="eza"
+alias ls='eza --color=always --group-directories-first --icons'
+alias ll='eza -la --icons --octal-permissions --group-directories-first'
+alias l='eza -bGF --header --git --color=always --group-directories-first --icons'
 alias cat="bat"
 alias grep="rg"
-
-# oh my zsh setup
-source "$ZSH_CONFIG/oh-my-zsh-config.zsh"
