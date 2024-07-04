@@ -24,7 +24,7 @@ alias ndir='nvim ~/notes/'
 alias shake="adb emu sensor set acceleration 100:100:100; sleep 1; adb emu sensor set acceleration 0:0:0"
 
 alias db="fvm dart run build_runner build --delete-conflicting-outputs"
-# clean dart build 
+
 alias cdb="fvm flutter clean && fvm dart run build_runner build --delete-conflicting-outputs"
 
 # cli
@@ -33,5 +33,5 @@ alias ls="eza"
 alias cat="bat"
 alias grep="rg"
 
+# oh my zsh setup
 source "$ZSH_CONFIG/oh-my-zsh-config.zsh"
-source $ZSH/oh-my-zsh.sh
