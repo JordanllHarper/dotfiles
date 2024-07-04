@@ -1,3 +1,23 @@
+# VARIABLES
+# config
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# editor
+export EDITOR="nvim"
+
+# homebrew
+export BREW="/opt/homebrew/bin"
+
+# zsh
+export ZSH="$XDG_CONFIG_HOME/.oh-my-zsh"
+export ZSH_CONFIG="$XDG_CONFIG_HOME/zsh"
+export ZSH_CUSTOM="$ZSH_CONFIG/custom"
+
+# TOOLS 
+eval "$(zoxide init zsh)"
+eval "$(opam config env)"
+
+# ALIASES
 alias nvimcfg='nvim ~/.config/nvim/'
 alias cfg="nvim ~/.config/"
 alias ndir='nvim ~/notes/'
@@ -12,3 +32,6 @@ alias lg="lazygit"
 alias ls="eza"
 alias cat="bat"
 alias grep="rg"
+
+source "$ZSH_CONFIG/oh-my-zsh-config.zsh"
+source $ZSH/oh-my-zsh.sh

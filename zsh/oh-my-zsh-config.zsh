@@ -1,13 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Hombrew path
-export BREW="/opt/homebrew/bin"
-
 # ls config
 export CLICOLOR=1
-
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -56,8 +50,6 @@ COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # see 'man strftime' for details.
  HIST_STAMPS="dd.mm.yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
- ZSH_CUSTOM="$XDG_CONFIG_HOME/zsh-config/custom/"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
