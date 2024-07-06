@@ -15,21 +15,13 @@ export ZSH_CONFIG="$XDG_CONFIG_HOME/zsh"
 # oh my zsh setup
 source "$ZSH_CONFIG/oh-my-zsh-config.zsh"
 
-
-# Download Znap, if it's not there yet.
-[[ -r $HOME/zsh-plugins/znap/znap.zsh ]] ||
-    git clone --depth 1 -- \
-        https://github.com/marlonrichert/zsh-snap.git $HOME/zsh-plugins/znap
-source $HOME/zsh-plugins/znap/znap.zsh  # Start Znap
-
-znap source marlonrichert/zsh-autocomplete
-znap source zsh-users/zsh-syntax-highlighting
-
+source "/opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 
 # TOOLS 
 eval "$(zoxide init zsh)"
 eval "$(opam config env)"
 eval "$(oh-my-posh init zsh --config $ZSH_CONFIG/themes/tokyo.omp.json)"
+
 # ALIASES
 alias nvimcfg='nvim ~/.config/nvim/'
 alias cfg="nvim ~/.config/"
