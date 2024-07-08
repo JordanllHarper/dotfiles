@@ -21,6 +21,11 @@ source "/opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 eval "$(zoxide init zsh)"
 eval "$(opam config env)"
 eval "$(oh-my-posh init zsh --config $ZSH_CONFIG/themes/tokyo.omp.json)"
+eval "$(fzf --zsh)"
+
+
+# oh my zsh setup
+source "$ZSH_CONFIG/oh-my-zsh-config.zsh"
 
 # ALIASES
 alias nvimcfg='nvim ~/.config/nvim/'
