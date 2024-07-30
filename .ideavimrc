@@ -1,0 +1,13 @@
+set relativenumber
+set number
+set so=5
+
+let mapleader =" " 
+nmap <space> <leader>
+
+map <leader>r <Action>(ReformatCode)
+map <leader>h <Action>(ShowHoverInfo)
+map gr <Action>(GotoDeclaration)
+map <leader>gr <Action>(Vcs.RollbackChangedLines)
+
+
