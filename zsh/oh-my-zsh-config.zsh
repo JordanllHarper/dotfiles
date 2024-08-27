@@ -56,7 +56,7 @@ COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git macos rust adb brew flutter)
+plugins=(git macos rust brew flutter)
 
 # User configuration
 
