@@ -28,7 +28,6 @@ local opts = {
 require('telescope').setup(opts)
 local ts = require 'telescope'
 ts.load_extension 'fzf'
-ts.load_extension 'frecency'
 ts.load_extension 'undo'
 
 -- telescope keymaps
@@ -64,9 +63,7 @@ leaderNmap('sq', builtin.quickfix,
 leaderNmap('sw', builtin.grep_string,
   '[S]earch current [W]ord')
 
-leaderNmap('se', "<Cmd>Telescope frecency<CR>", "[S]earch fr[E]cency")
-
 leaderNmap('C', function()
     builtin.find_files { cwd = "~/.config/nvim/lua" }
   end,
-  '[S]earch  [C]onfiguration')
+  '[S]earch [C]onfiguration')

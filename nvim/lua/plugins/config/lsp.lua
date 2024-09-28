@@ -47,7 +47,9 @@ require('mason-lspconfig').setup_handlers {
       capabilities = capabilities,
       cmd = {
         "clangd",
-        "--offset-encoding=utf-16"
+        "--offset-encoding=utf-16",
+        '--background-index', '--clang-tidy',
+        '--log=verbose'
       }
     }
   end,

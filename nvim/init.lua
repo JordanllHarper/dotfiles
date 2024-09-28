@@ -33,7 +33,10 @@ require('lazy').setup({
     lazy = true
   },
   dev = {
-    path = "~/projects"
+    path = "~/projects",
+  },
+  rocks = {
+    enabled = false
   },
   checker = {
     enabled = true
@@ -48,11 +51,10 @@ require('lazy').setup({
   { import = 'plugins' },
   { import = 'themes' },
 })
-vim.cmd [[colorscheme tokyonight]]
+vim.cmd [[colorscheme kanagawa]]
 leaderNmap("ln", "<Cmd>Lazy<CR>", "[L]azy [N]vim")
 leaderNmap("lr", ":Lazy reload", "[L]azy reload")
 require('keymaps.keymaps')
 require('additional-config.augroups')
-require('additional-config.autoformat')
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

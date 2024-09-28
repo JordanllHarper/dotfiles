@@ -39,7 +39,6 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 
-zinit light zdharma-continuum/fast-syntax-highlighting # zinit 
 
 # TOOLS 
 eval "$(zoxide init zsh)"
@@ -55,8 +54,11 @@ source "$ZSH_CONFIG/oh-my-zsh-config.zsh"
 alias nvimcfg='nvim ~/.config/nvim/'
 alias cfg="nvim ~/.config/"
 alias ndir='nvim ~/notes/'
+alias nnew='nvim ~/notes/skel_note.md'
+
 # android
 alias shake="adb emu sensor set acceleration 100:100:100; sleep 1; adb emu sensor set acceleration 0:0:0"
+
 # flutter
 alias db="fvm dart run build_runner build --delete-conflicting-outputs"
 alias cdb="fvm flutter clean && fvm dart run build_runner build --delete-conflicting-outputs"

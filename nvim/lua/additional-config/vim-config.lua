@@ -8,6 +8,9 @@ vim.lsp.omnifunc(1, 0)
 -- Set highlight on search
 vim.o.hlsearch = false
 
+vim.o.cindent = true
+vim.o.mousehide = true
+
 -- Highlight cursor line
 vim.o.cursorline = true
 

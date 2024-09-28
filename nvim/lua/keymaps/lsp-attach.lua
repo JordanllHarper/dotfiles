@@ -16,8 +16,8 @@ return function(_, bufnr)
 	end
 
 	bufleaderNmap('h', vim.lsp.buf.hover, '[H]over')
+	bufleaderNmap('H', vim.lsp.buf.signature_help, 'Signature [H]elp')
 	bufleaderNmap('rn', vim.lsp.buf.rename, '[R]e[N]ame')
-	bufimap('<C-i>', vim.lsp.buf.signature_help, 'Signature [H]elp')
 
 	bufnmap('[d', vim.diagnostic.goto_prev, 'Go to previous diagnostic message')
 	bufnmap(']d', vim.diagnostic.goto_next, 'Go to next diagnostic message')
