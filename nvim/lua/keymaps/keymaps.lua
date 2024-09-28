@@ -13,6 +13,11 @@ map('t', '<C-q>', '<C-\\><C-n>', '[Q]uit terminal mode')
 leaderNmap('Li', '<Cmd>LspInfo<CR>', '[L]sp [I]nfo')
 leaderNmap('Lr', '<Cmd>LspRestart<CR>', '[L]sp [R]estart')
 
+leaderNmap("S", function()
+	vim.cmd('luafile %')
+	vim.notify("Resourcing luafile", vim.log.levels.INFO)
+end, "[S]ource")
+
 -- Tabs
 leaderNmap('u', "<Cmd>tabprevious<CR>", "Previous tab")
 leaderNmap('p', "<Cmd>tabnext<CR>", "Next tab")

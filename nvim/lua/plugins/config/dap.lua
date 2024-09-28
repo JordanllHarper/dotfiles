@@ -1,0 +1,10 @@
+local map = require('utils')
+local dap = require('dap')
+
+map.leaderNmap('b', dap.toggle_breakpoint, "Toggle [B]reakpoint")
+map.leaderNmap('Dc', dap.continue, "[C]ontinue")
+map.leaderNmap('Dso', dap.step_over, "[O]ver")
+map.leaderNmap('Dsi', dap.step_into, "[I]nto")
+map.leaderNmap('Dr', dap.restart, "[R]estart")
+map.leaderNmap('Dq', dap.terminate, "[Q]uit")
+map.leaderNmap('DC', dap.clear_breakpoints, "[C]lear Breakpoints")
