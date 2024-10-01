@@ -27,7 +27,7 @@ return function(_, bufnr)
 
 	bufleaderNmap('e', vim.diagnostic.open_float, 'Open [E]rror float')
 
-	bufleaderNmap("<CR>", require("actions-preview").code_actions)
+	bufleaderNmap("c", require("actions-preview").code_actions)
 
 	imap("<C-n>", "<C-x><C-o>")
 

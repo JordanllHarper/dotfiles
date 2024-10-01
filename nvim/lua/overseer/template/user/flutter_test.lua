@@ -8,5 +8,4 @@ return {
   condition = {
     filetype = { "dart" },
   }
-
 }
