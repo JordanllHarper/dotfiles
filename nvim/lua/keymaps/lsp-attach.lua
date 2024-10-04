@@ -1,6 +1,8 @@
 local map = require 'utils'.map
 local imap = require 'utils'.imap
 local cmd = require 'utils'.custom_user_command
+
+local vt = vim.diagnostic.config().virtual_text
 return function(_, bufnr)
 	-- TODO: Find a way to make more general
 	local bufnmap = function(keys, func, desc)
@@ -34,6 +36,13 @@ return function(_, bufnr)
 	cmd(bufnr, 'Format', function(_)
 		vim.lsp.buf.format()
 	end, 'Format current buffer with LSP')
+
+	cmd(bufnr, 'ToggleHints', function(_)
+		require 'lsp-attach.toggle_virt_text'.toggle()
+	end, 'Toggle Virtual Text in Buffer'
+	)
+
+	bufleaderNmap("Lt", "<Cmd>ToggleHints<CR>", "[T]oggle hints")
 
 
 	-- telescope lsp keymaps
