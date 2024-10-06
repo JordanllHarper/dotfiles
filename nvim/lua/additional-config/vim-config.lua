@@ -72,3 +72,5 @@ vim.opt.inccommand = 'split'
 -- Spelling help
 vim.opt.spell = false
 vim.opt.spelllang = { 'en_us' }
+
+vim.o.guicursor='a:block'
