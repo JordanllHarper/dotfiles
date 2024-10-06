@@ -8,7 +8,6 @@ vim.lsp.omnifunc(1, 0)
 -- Set highlight on search
 vim.o.hlsearch = false
 
-vim.o.cindent = true
 vim.o.mousehide = true
 
 -- Highlight cursor line
@@ -26,8 +25,11 @@ vim.o.mouse = 'a'
 --  See `:help 'clipboard'`
 vim.o.clipboard = 'unnamedplus'
 
+-- INDENT
 -- Enable break indent
 vim.o.breakindent = true
+vim.o.autoindent = true
+vim.o.smartindent = true
 
 -- Enable scroll off
 vim.o.scrolloff = 5
@@ -52,6 +54,7 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
+vim.o.expandtab = true
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
