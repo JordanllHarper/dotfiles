@@ -1,4 +1,6 @@
 return {
   "aznhe21/actions-preview.nvim",
-  opts = {}
+  config = function()
+    require 'plugins.config.actions-preview'
+  end
 }

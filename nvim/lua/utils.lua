@@ -20,8 +20,12 @@ function M.leaderNmap(lhs, rhs, desc)
 	M.nmap('<leader>' .. lhs, rhs, desc)
 end
 
-function M.custom_user_command(bufnr, name, command, desc)
+function M.custom_buf_user_command(bufnr, name, command, desc)
 	vim.api.nvim_buf_create_user_command(bufnr, name, command, { desc = desc })
+end
+
+function M.custom_user_command(name, command, desc)
+	vim.api.nvim_create_user_command(name, command, { desc = desc })
 end
 
 return M

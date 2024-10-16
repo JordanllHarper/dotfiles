@@ -1,6 +1,6 @@
 local map = require 'utils'.map
 local imap = require 'utils'.imap
-local cmd = require 'utils'.custom_user_command
+local cmd = require 'utils'.custom_buf_user_command
 
 local vt = vim.diagnostic.config().virtual_text
 return function(_, bufnr)

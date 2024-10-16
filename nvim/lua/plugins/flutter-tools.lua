@@ -5,6 +5,7 @@ return {
 		'nvim-lua/plenary.nvim',
 		{
 			'stevearc/dressing.nvim',
+			enabled = false,
 			opts = {
 				input = {
 					enabled = false
