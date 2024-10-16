@@ -6,7 +6,6 @@
 -- <A> = Alt/Option
 
 local map = require 'utils'.map
-local nmap = require 'utils'.nmap
 local leaderNmap = require 'utils'.leaderNmap
 
 map({ 'n', 'v' }, '<Space>', '<Nop>')
@@ -15,6 +14,7 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 require('additional-config.vim-config')
+require('additional-config.filetypes')
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
