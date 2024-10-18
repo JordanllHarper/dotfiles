@@ -1,3 +1,15 @@
+
+
+# Checks if an application is installed
+# If it is not run `brew install`
+install_if_not_exists () {
+    command=$(which -s $1)
+    if ! command; then
+       brew install $2
+    fi 
+}
+
+#
 # VARIABLES
 # config
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -12,17 +24,21 @@ export BREW="/opt/homebrew/bin"
 export ZSH="$XDG_CONFIG_HOME/.oh-my-zsh"
 export ZSH_CONFIG="$XDG_CONFIG_HOME/zsh"
 
-# Add Java env to path
-export PATH="$HOME/.jenv/bin:$PATH"
 
 # oh my zsh setup
 source "$ZSH_CONFIG/oh-my-zsh-config.zsh"
 
 # TOOLS 
+install_if_not_exists "zoxide" "zoxide"
 eval "$(zoxide init zsh)"
 eval "$(opam config env)"
 # eval "$(oh-my-posh init zsh --config $ZSH_CONFIG/themes/tokyo.omp.json)"
+install_if_not_exists "fzf" "fzf"
 eval "$(fzf --zsh)"
+
+# Add Java env to path
+install_if_not_exists "jenv" "jenv"
+export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
 
