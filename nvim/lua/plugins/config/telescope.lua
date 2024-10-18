@@ -58,12 +58,10 @@ leaderNmap('sr', builtin.resume, '[S]earch [R]esume')
 leaderNmap('sR', builtin.registers, '[S]earch [R]egisters')
 leaderNmap('sk', builtin.keymaps, '[S]earch [K]eymaps')
 leaderNmap('st', builtin.builtin, '[S]earch [T]elescope')
-leaderNmap('sq', builtin.quickfix,
-  '[S]earch [Q]uick Fix')
-leaderNmap('sw', builtin.grep_string,
-  '[S]earch current [W]ord')
+leaderNmap('sq', builtin.quickfix, '[S]earch [Q]uick Fix')
+leaderNmap('sw', builtin.grep_string, '[S]earch current [W]ord')
+leaderNmap('sW', builtin.lsp_workspace_symbols, '[S]earch current [W]orkspace symbols')
 
 leaderNmap('C', function()
     builtin.find_files { cwd = "~/.config/nvim/lua" }
-  end,
-  '[S]earch [C]onfiguration')
+  end, '[S]earch [C]onfiguration')
