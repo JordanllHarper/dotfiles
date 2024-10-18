@@ -34,6 +34,7 @@ alias nvimcfg='nvim ~/.config/nvim/'
 alias cfg="nvim ~/.config/"
 alias ndir='nvim ~/notes/'
 alias nnew='nvim ~/notes/skel_note.md'
+alias nmd='nvim ./skel.md'
 
 alias nv="nvim"
 alias nvimdev="VIMRUNTIME=./runtime ./build/bin/nvim --luamod-dev"
