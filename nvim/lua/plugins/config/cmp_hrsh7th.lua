@@ -8,7 +8,6 @@ ls.config.setup {
   },
 }
 
-
 for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/custom/snippets/*.lua", true)) do
   loadfile(ft_path)()
 end
@@ -27,6 +26,7 @@ end, { silent = true })
 
 cmp.setup {
   formatting = {
+    expandable_indicator = true,
     format = lspkind.cmp_format(),
   },
   snippet = {
@@ -44,6 +44,7 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Insert,
       select = true,
     },
+    ['CR'] = {}
   },
   sources = {
     { name = 'nvim_lsp' },
