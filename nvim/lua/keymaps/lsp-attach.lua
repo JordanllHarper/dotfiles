@@ -15,8 +15,18 @@ return function(_, bufnr)
 	bufleaderNmap("H", vim.lsp.buf.signature_help, "Signature [H]elp")
 	bufleaderNmap("rn", vim.lsp.buf.rename, "[R]e[N]ame")
 
-	bufnmap("[d", vim.diagnostic.get_prev, "Go to previous diagnostic message")
-	bufnmap("]d", vim.diagnostic.get_next, "Go to next diagnostic message")
+
+
+	local function jump_to_prev_diagnostic()
+		vim.diagnostic.jump({ diagnostic = vim.diagnostic.get_prev() })
+	end
+
+	local function jump_to_next_diagnostic()
+		vim.diagnostic.jump({ diagnostic = vim.diagnostic.get_next() })
+	end
+
+	bufnmap("[d", jump_to_prev_diagnostic ,"Go to previous diagnostic message")
+	bufnmap("]d", jump_to_next_diagnostic, "Go to next diagnostic message")
 
 	bufnmap("]q", "<Cmd>cnext<CR>", "Next quickfix")
 	bufnmap("[q", "<Cmd>cprev<CR>", "Previous quickfix")

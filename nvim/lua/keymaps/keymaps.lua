@@ -30,8 +30,3 @@ leaderNmap('p', "<Cmd>tabnext<CR>", "Next tab")
 leaderNmap('N', "<Cmd>tabnew<CR>", "New tab")
 leaderNmap('x', "<Cmd>tabclose<CR>", "Close tab")
 
--- Autoformat
-leaderNmap("f", function()
-	vim.lsp.buf.format()
-	vim.notify("Formatted", vim.log.levels.INFO)
-end, "[F]ormat")

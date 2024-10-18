@@ -15,6 +15,7 @@ local registers = {
   { '<leader>fr', group = '[R]e...', },
   { '<leader>q',  group = '[Q]uickfix', },
   { '<leader>r',  group = '[R]ename', },
+  { '<leader>R',  group = '[R]ust...', },
   { '<leader>s',  group = '[S]earch', },
   { '<leader>t',  group = '[T]erminal', },
   { '<leader>w',  group = '[W]orkspace', },
