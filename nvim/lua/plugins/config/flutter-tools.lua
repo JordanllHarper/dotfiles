@@ -8,7 +8,6 @@ local flutter_key_bindings = function()
   leaderNmap('fe', "<Cmd>FlutterEmulators<CR>", '[F]lutter [E]mulators')
   leaderNmap('fo', require('flutter-tools.outline').toggle, '[F]lutter [O]utline')
   leaderNmap('fc', require('flutter-tools.log').clear, '[F]lutter [C]lear')
-  leaderNmap('fl', require('flutter-tools.log').toggle_dev_log, '[F]lutter [L]og')
   leaderNmap('fL', require('flutter-tools.lsp').restart, '[F]lutter [L]sp Restart')
 end
 

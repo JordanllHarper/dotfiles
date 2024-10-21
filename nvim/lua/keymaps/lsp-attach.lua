@@ -18,14 +18,18 @@ return function(_, bufnr)
 
 
 	local function jump_to_prev_diagnostic()
-		vim.diagnostic.jump({ diagnostic = vim.diagnostic.get_prev() })
+		if vim.diagnostic.get(bufnr) then
+			vim.diagnostic.jump({ diagnostic = vim.diagnostic.get_prev() })
+		end
 	end
 
 	local function jump_to_next_diagnostic()
-		vim.diagnostic.jump({ diagnostic = vim.diagnostic.get_next() })
+		if vim.diagnostic.get(bufnr) then
+			vim.diagnostic.jump({ diagnostic = vim.diagnostic.get_next() })
+		end
 	end
 
-	bufnmap("[d", jump_to_prev_diagnostic ,"Go to previous diagnostic message")
+	bufnmap("[d", jump_to_prev_diagnostic, "Go to previous diagnostic message")
 	bufnmap("]d", jump_to_next_diagnostic, "Go to next diagnostic message")
 
 	bufnmap("]q", "<Cmd>cnext<CR>", "Next quickfix")
@@ -62,7 +66,7 @@ return function(_, bufnr)
 	bufnmap("gI", ts.lsp_implementations, "[G]oto [I]mplementation")
 
 	bufleaderNmap("T", ts.lsp_type_definitions, "[T]ype Definition")
-	bufleaderNmap("ds", ts.lsp_document_symbols, "[D]ocument [S]ymbols")
+	bufleaderNmap("d", ts.lsp_document_symbols, "[D]ocument [S]ymbols")
 	bufleaderNmap("ss", ts.lsp_dynamic_workspace_symbols, "[S]earch [S]ymbols")
 
 	bufleaderNmap("sd", function()

@@ -44,6 +44,7 @@ leaderNmap('/', function()
   })
 end, '[/] Fuzzily search in current buffer')
 
+-- NOTE: None LSP functionality
 leaderNmap('sF', function() builtin.find_files { hidden = true, } end,
   '[S]earch All [F]iles (including hidden)')
 leaderNmap('sf', builtin.find_files,
@@ -60,7 +61,6 @@ leaderNmap('sk', builtin.keymaps, '[S]earch [K]eymaps')
 leaderNmap('st', builtin.builtin, '[S]earch [T]elescope')
 leaderNmap('sq', builtin.quickfix, '[S]earch [Q]uick Fix')
 leaderNmap('sw', builtin.grep_string, '[S]earch current [W]ord')
-leaderNmap('sW', builtin.lsp_workspace_symbols, '[S]earch current [W]orkspace symbols')
 
 leaderNmap('C', function()
     builtin.find_files { cwd = "~/.config/nvim/lua" }

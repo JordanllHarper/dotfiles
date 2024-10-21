@@ -1,9 +1,11 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 vim.diagnostic.config({
-  virtual_text = {
-    severity = vim.diagnostic.severity.L
-  }
+  virtual_text = true,
 })
+
+
+vim.lsp.inlay_hint.enable(true)
 
 require('mason').setup()
 require('mason-lspconfig').setup_handlers {
