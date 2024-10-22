@@ -1,74 +1,69 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local lspconf = require('lspconfig')
 
 vim.diagnostic.config({
   virtual_text = true,
 })
 
+local function default_configure(server_name, user_config)
+  local user_settings = user_config or {}
+  lspconf[server_name].setup {
+    capabilities = user_settings.capabilities or capabilities,
+    on_attach = user_settings.on_attach or require('keymaps.lsp-attach'),
+    on_init = user_settings.on_init or {},
+    settings = user_settings.settings or {},
+    cmd = user_settings.cmd or nil
+  }
+end
 
 vim.lsp.inlay_hint.enable(true)
 
-require('mason').setup()
-require('mason-lspconfig').setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = require('keymaps.lsp-attach'),
-    }
-  end,
-  ["lua_ls"] = function()
-    require 'lspconfig'.lua_ls.setup {
-      on_attach = require('keymaps.lsp-attach'),
-      capabilities = capabilities,
-      on_init = function(client)
-        local path = client.workspace_folders[1].name
-        if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
-          return
-        end
-        client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-          runtime = {
-            version = "LuaJIT"
-          },
-          workspace = {
-            checkThirdParty = false,
-          },
-        })
-      end,
-      settings = {
-        Lua = {
-          completion = {
-            callSnippet = "Both",
-            displayContext = 1
-          },
+
+-- 
+-- !!! SETUP SERVERS !!!
+--
+
+default_configure('lua_ls',
+  {
+    on_init = function(client)
+      local path = client.workspace_folders[1].name
+      if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
+        return
+      end
+      client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+        runtime = {
+          version = "LuaJIT"
+        },
+        workspace = {
+          checkThirdParty = false,
+        },
+      })
+    end,
+    settings = {
+      Lua = {
+        completion = {
+          callSnippet = "Both",
+          displayContext = 1
         },
       },
     }
-  end,
-  ["clangd"] = function()
-    require 'lspconfig'.clangd.setup {
-      on_attach = require("keymaps.lsp-attach"),
-      capabilities = capabilities,
-      cmd = {
-        "clangd",
-        "--offset-encoding=utf-16",
-        '--background-index', '--clang-tidy',
-        '--log=verbose'
-      }
+  }
+)
+
+default_configure('clangd',
+  {
+    cmd = {
+      "clangd",
+      "--offset-encoding=utf-16",
+      '--background-index', '--clang-tidy',
+      '--log=verbose'
     }
-  end,
-  -- Experimenting with Rustaceanvim: https://github.com/mrcjkb/rustaceanvim
-  -- ["rust_analyzer"] = function()
-  --   require 'lspconfig'.rust_analyzer.setup {
-  --     settings     = {
-  --       ["rust-analyzer"] = {
-  --         checkOnSave = {
-  --           command = "clippy"
-  --         }
-  --       }
-  --     },
-  --     capabilities = capabilities,
-  --     on_attach    = function(client, bufnr)
-  --       require('keymaps.lsp-attach')(client, bufnr)
-  --       vim.lsp.inlay_hint.enable()
-  --     end }
-  -- end
-}
+  }
+)
+
+default_configure('bashls')
+default_configure('cmake')
+default_configure('cssls')
+default_configure('css_variables')
+default_configure('cssmodulesls')
+default_configure('gopls')
