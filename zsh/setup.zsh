@@ -1,5 +1,3 @@
-
-
 # Checks if an application is installed
 # If it is not run `brew install`
 install_if_not_exists () {
@@ -9,7 +7,6 @@ install_if_not_exists () {
     fi 
 }
 
-#
 # VARIABLES
 # config
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -24,35 +21,37 @@ export BREW="/opt/homebrew/bin"
 export ZSH="$XDG_CONFIG_HOME/.oh-my-zsh"
 export ZSH_CONFIG="$XDG_CONFIG_HOME/zsh"
 
-
 # oh my zsh setup
 source "$ZSH_CONFIG/oh-my-zsh-config.zsh"
 
 # TOOLS 
+#zoxide 
 install_if_not_exists "zoxide" "zoxide"
 eval "$(zoxide init zsh)"
+
+#opam (ocaml)
 eval "$(opam config env)"
-# eval "$(oh-my-posh init zsh --config $ZSH_CONFIG/themes/tokyo.omp.json)"
+
+# fzf
 install_if_not_exists "fzf" "fzf"
 eval "$(fzf --zsh)"
 
-# Add Java env to path
+# Java env
 install_if_not_exists "jenv" "jenv"
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
-
-# oh my zsh setup
+# oh my zsh 
 source "$ZSH_CONFIG/oh-my-zsh-config.zsh"
 
 # ALIASES
+# neovim
 alias nvimcfg='nvim ~/.config/nvim/'
 alias cfg="nvim ~/.config/"
 alias ndir='nvim ~/notes/'
-alias nnew='nvim ~/notes/skel_note.md'
-alias nmd='nvim ./skel.md'
-
 alias nv="nvim"
+
+# dev
 alias nvimdev="VIMRUNTIME=./runtime ./build/bin/nvim --luamod-dev"
 alias nvdev="VIMRUNTIME=./runtime ./build/bin/nvim --luamod-dev"
 
@@ -64,10 +63,14 @@ alias db="fvm dart run build_runner build --delete-conflicting-outputs"
 alias cdb="fvm flutter clean && fvm dart run build_runner build --delete-conflicting-outputs"
 
 # cli
+install_if_not_exists "lazygit"
 alias lg="lazygit"
+
+# terminal
+install_if_not_exists "eza"
 alias ls='eza --color=always --group-directories-first --icons'
 alias ll='eza -la --icons --octal-permissions --group-directories-first'
 alias l='eza -bGF --header --git --color=always --group-directories-first --icons'
+install_if_not_exists "bat"
 alias cat="bat"
 alias grep="rg"
-

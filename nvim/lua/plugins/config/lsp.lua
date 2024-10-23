@@ -10,16 +10,17 @@ local function default_configure(server_name, user_config)
   lspconf[server_name].setup {
     capabilities = user_settings.capabilities or capabilities,
     on_attach = user_settings.on_attach or require('keymaps.lsp-attach'),
-    on_init = user_settings.on_init or {},
-    settings = user_settings.settings or {},
-    cmd = user_settings.cmd or nil
+    on_init = user_settings.on_init,
+    settings = user_settings.settings,
+    cmd = user_settings.cmd,
+    filetypes = user_settings.filetypes,
   }
 end
 
 vim.lsp.inlay_hint.enable(true)
 
 
--- 
+--
 -- !!! SETUP SERVERS !!!
 --
 
@@ -67,3 +68,6 @@ default_configure('cssls')
 default_configure('css_variables')
 default_configure('cssmodulesls')
 default_configure('gopls')
+default_configure('ruby_lsp')
+local omnisharp = vim.fn.expand("$OMNISHARP_PATH")
+default_configure('omnisharp', { cmd = { "dotnet", omnisharp } })
