@@ -50,8 +50,8 @@ local function configure_diagnostic(bufnr)
 		vim.keymap.set("n", "<leader>" .. keys, func, { buffer = bufnr, desc = desc })
 	end
 
-	bufnmap("[d", vim.diagnostic.goto_next, "Go to previous diagnostic message")
-	bufnmap("]d", vim.diagnostic.goto_prev, "Go to next diagnostic message")
+	bufnmap("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic message")
+	bufnmap("]d", vim.diagnostic.goto_next, "Go to next diagnostic message")
 	bufleaderNmap("e", vim.diagnostic.open_float, "Open [E]rror float")
 
 
