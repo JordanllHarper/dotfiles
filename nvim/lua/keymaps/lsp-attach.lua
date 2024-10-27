@@ -1,4 +1,3 @@
-local imap = require("utils").imap
 local cmd = require("utils").custom_buf_user_command
 local ts = require("telescope.builtin")
 

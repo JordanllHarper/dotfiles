@@ -5,7 +5,7 @@ local opts = {
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
   },
-  extensions = { 'nvim-tree', 'mason', 'trouble', 'lazy' },
+  extensions = { 'lazy', 'fugitive' },
   sections = {
     lualine_a = {
       {
@@ -15,17 +15,24 @@ local opts = {
         end,
       }
     },
-    lualine_b = { { 'diff' } },
+    lualine_b = {
+      { 'diff' },
+    },
     lualine_c = { {
       'filetype',
       icon_only = true,
       separator = "",
-    }, {
-      'filename',
-    }, },
-    lualine_x = { { 'diagnostics' } },
+    },
+      { 'filename', },
+      { 'buffers' },
+    },
+    lualine_x = {
+      { 'diagnostics' },
+    },
     lualine_y = { { 'branch', }, },
-    lualine_z = { { 'location', }, { 'progress' } },
+    lualine_z = { { 'location', },
+      { 'progress' },
+    },
   },
 }
 require 'lualine'.setup(opts)

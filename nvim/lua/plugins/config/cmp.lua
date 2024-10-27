@@ -1,31 +1,12 @@
 local cmp = require 'cmp'
-local ls = require 'luasnip'
 local lspkind = require 'lspkind'
+local ls = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
-ls.config.setup {
-  setup = {
-    enable_autosnippets = true,
-  },
-}
 
-for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/custom/snippets/*.lua", true)) do
-  loadfile(ft_path)()
-end
-
-
-vim.keymap.set({ 'i', 's' }, "<C-k>", function()
-  if ls.expand_or_jumpable() then
-    ls.expand_or_jump()
-  end
-end, { silent = true })
-vim.keymap.set({ 'i', 's' }, "<C-j>", function()
-  if ls.jumpable() then
-    ls.jump(-1)
-  end
-end, { silent = true })
-
+---@type cmp.Config
 cmp.setup {
   formatting = {
+    fields = { 'abbr', 'kind', 'menu' },
     expandable_indicator = true,
     format = lspkind.cmp_format(),
   },
