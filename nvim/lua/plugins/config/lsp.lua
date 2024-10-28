@@ -5,6 +5,9 @@ vim.diagnostic.config({
   virtual_text = true,
 })
 
+---Default configuration func
+---@param server_name string
+---@param user_config lspconfig.Config?
 local function default_configure(server_name, user_config)
   local user_settings = user_config or {}
   lspconf[server_name].setup {
@@ -69,5 +72,9 @@ default_configure('css_variables')
 default_configure('cssmodulesls')
 default_configure('gopls')
 default_configure('ruby_lsp')
+
 local omnisharp = vim.fn.expand("$OMNISHARP_PATH")
-default_configure('omnisharp', { cmd = { "dotnet", omnisharp } })
+default_configure('omnisharp',
+  {
+    cmd = { "dotnet", omnisharp },
+  })
