@@ -2,9 +2,12 @@ local cmd = require("utils").custom_buf_user_command
 local ts = require("telescope.builtin")
 
 local set = vim.keymap.set
+local del = vim.keymap.del
 
 -- utils
 
+---Configures the lsp keymaps
+---@param bufnr number
 local function configure_lsp(bufnr)
 	local bufnmap = function(keys, func, desc)
 		set("n", keys, func, { buffer = bufnr, desc = desc })
@@ -47,6 +50,8 @@ local function configure_lsp(bufnr)
 	end, "[F]ormat")
 end
 
+---Configures the default keymaps for diagnostics
+---@param bufnr number
 local function configure_diagnostic(bufnr)
 	local bufnmap = function(keys, func, desc)
 		set("n", keys, func, { buffer = bufnr, desc = desc })
@@ -81,7 +86,22 @@ local function configure_diagnostic(bufnr)
 	bufleaderNmap("sD", ts.diagnostics, "[S]earch [D]iagnostics")
 end
 
+
+---Deletes the default keybindings
+---@param bufnr number
+local function delete_defaults(bufnr)
+	local bufdel = function(mode, lhs)
+		pcall(function() del(mode, lhs, { buffer = bufnr }) end)
+	end
+	bufdel("n", "grn")
+	bufdel("n", "gra")
+	bufdel("n", "grr")
+	bufdel("n", "gri")
+	bufdel("i", "<C-S>")
+end
+
 return function(_, bufnr)
+	delete_defaults(bufnr)
 	configure_lsp(bufnr)
 	configure_diagnostic(bufnr)
 
