@@ -1,4 +1,5 @@
 local ls = require 'luasnip'
+local map = require('utils').map
 
 ls.config.setup {
   setup = {
@@ -10,13 +11,16 @@ for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/custom/snippets/*.lu
   loadfile(ft_path)()
 end
 
-vim.keymap.set({ 'i', 's' }, "<C-k>", function()
-  if ls.expand_or_jumpable() then
-    ls.expand_or_jump()
-  end
-end, { silent = true })
-vim.keymap.set({ 'i', 's' }, "<C-j>", function()
+-- jump backwards
+map({ 'n', 'i', 's' }, "<C-a>", function()
   if ls.jumpable() then
     ls.jump(-1)
   end
-end, { silent = true })
+end)
+
+-- jump forwards
+map({'n', 'i', 's' }, "<C-s>", function()
+  if ls.expand_or_jumpable() then
+    ls.expand_or_jump()
+  end
+end)
