@@ -13,9 +13,12 @@ nt.setup {
 }
 
 leaderNmap("nt", nt.run.run, "[N]eotest [R]un")
+leaderNmap("no", nt.output_panel.toggle, "[N]eotest [O]utput")
 leaderNmap("na", function()
   nt.run.run(vim.fn.expand("%"))
 end, "[N]eotest [A]ll")
+
+leaderNmap("ns", nt.summary.toggle, "[N]eotest [S]ummary")
 
 leaderNmap("nwt", function()
   nt.watch.toggle()

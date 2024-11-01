@@ -4,8 +4,8 @@ local leaderNmap = require 'utils'.leaderNmap
 
 -- Quickfix
 leaderNmap('qo', '<Cmd>copen<CR>', '[Q]uickfix [O]pen')
-leaderNmap("]q", "<Cmd>cnext<CR>", "Next quickfix")
-leaderNmap("[q", "<Cmd>cprev<CR>", "Previous quickfix")
+nmap("]q", "<Cmd>cnext<CR>", "Next [Q]uickfix")
+nmap("[q", "<Cmd>cprev<CR>", "Previous [Q]uickfix")
 
 -- Terminal
 leaderNmap('t', function()
