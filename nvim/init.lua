@@ -50,7 +50,7 @@ require('lazy').setup({
   },
   { import = 'plugins' },
   -- personal plugins
-  { import = 'plugins/custom' },
+  -- { import = 'plugins/custom' },
   { import = 'themes' },
 })
 vim.cmd [[colorscheme kanagawa]]

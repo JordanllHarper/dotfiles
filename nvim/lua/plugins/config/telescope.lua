@@ -1,7 +1,6 @@
 local default_keymaps = {
-  ['<C-b>'] = function(prompt_bufnr)
-    require('telescope.actions').delete_buffer(prompt_bufnr)
-  end,
+  ['<C-b>'] = require('telescope.actions').delete_buffer,
+  ['<C-s>'] = require 'telescope.actions'.select_horizontal
 }
 local opts = {
   defaults = {
@@ -62,5 +61,5 @@ leaderNmap('sq', builtin.quickfix, '[S]earch [Q]uick Fix')
 leaderNmap('sw', builtin.grep_string, '[S]earch current [W]ord')
 
 leaderNmap('C', function()
-    builtin.find_files { cwd = "~/.config/nvim/lua" }
-  end, '[S]earch [C]onfiguration')
+  builtin.find_files { cwd = "~/.config/nvim/lua" }
+end, '[S]earch [C]onfiguration')

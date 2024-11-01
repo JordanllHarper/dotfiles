@@ -73,6 +73,14 @@ default_configure('cssmodulesls')
 default_configure('gopls')
 default_configure('ruby_lsp')
 
+local swift_capabilities = vim.tbl_deep_extend("force", capabilities,
+  { workspace = { didChangeWatchedFile = { dynamicRegistration = true } } })
+
+default_configure('sourcekit', { capabilities = swift_capabilities })
+default_configure('java_language_server',
+  { cmd = { vim.fn.expand("$HOME") .. "/java-language-server/dist/lang_server_mac.sh" } })
+
+
 local omnisharp = vim.fn.expand("$OMNISHARP_PATH")
 default_configure('omnisharp',
   {
