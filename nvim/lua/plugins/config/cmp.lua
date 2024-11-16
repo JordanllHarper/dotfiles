@@ -5,6 +5,7 @@ require('luasnip.loaders.from_vscode').lazy_load()
 
 ---@type cmp.Config
 cmp.setup {
+  preselect = cmp.PreselectMode.Item,
   formatting = {
     fields = { 'abbr', 'kind', 'menu' },
     expandable_indicator = true,

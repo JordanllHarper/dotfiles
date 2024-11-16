@@ -8,6 +8,8 @@ return {
       opts = {},
 
     },
+    -- NOTE: additional parser
+    { "nushell/tree-sitter-nu",                     build = ":TSUpdate nu" },
   },
   build = ':TSUpdate',
   config = function()

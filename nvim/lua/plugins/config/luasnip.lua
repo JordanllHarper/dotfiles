@@ -20,7 +20,7 @@ end)
 
 -- jump forwards
 map({'n', 'i', 's' }, "<C-s>", function()
-  if ls.expand_or_jumpable() then
-    ls.expand_or_jump()
+  if ls.jumpable() then
+    ls.jump(1)
   end
 end)
