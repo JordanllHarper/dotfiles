@@ -224,7 +224,7 @@ $env.config = {
     }
 
     filesize: {
-        metric: false # true => KB, MB, GB (ISO standard), false => KiB, MiB, GiB (Windows standard)
+        metric: true # true => KB, MB, GB (ISO standard), false => KiB, MiB, GiB (Windows standard)
         format: "auto" # b, kb, kib, mb, mib, gb, gib, tb, tib, pb, pib, eb, eib, auto
     }
 
@@ -237,7 +237,7 @@ $env.config = {
     color_config: $dark_theme # if you want a more interesting theme, you can replace the empty record with `$dark_theme`, `$light_theme` or another custom record
     footer_mode: 25 # always, never, number_of_rows, auto
     float_precision: 2 # the precision for displaying floats in tables
-    buffer_editor: null # command that will be used to edit the current line buffer with ctrl+o, if unset fallback to $env.EDITOR and $env.VISUAL
+    buffer_editor: nvim # command that will be used to edit the current line buffer with ctrl+o, if unset fallback to $env.EDITOR and $env.VISUAL
     use_ansi_coloring: true
     bracketed_paste: true # enable bracketed paste, currently useless on windows
     edit_mode: vi # emacs, vi
@@ -270,7 +270,7 @@ $env.config = {
         reset_application_mode: true
     }
     render_right_prompt_on_last_line: false # true or false to enable or disable right prompt to be rendered on last line of the prompt.
-    use_kitty_protocol: false # enables keyboard enhancement protocol implemented by kitty console, only if your terminal support this.
+    use_kitty_protocol: true # enables keyboard enhancement protocol implemented by kitty console, only if your terminal support this.
     highlight_resolved_externals: false # true enables highlighting of external commands in the repl resolved by which.
     recursion_limit: 50 # the maximum number of times nushell allows recursion before stopping it
 
@@ -392,9 +392,9 @@ $env.config = {
     keybindings: [
         {
             name: completion_menu
-            modifier: none
-            keycode: tab
-            mode: [emacs vi_normal vi_insert]
+            modifier: control
+            keycode: char_h
+            mode: [vi_normal vi_insert]
             event: {
                 until: [
                     { send: menu name: completion_menu }
@@ -407,22 +407,22 @@ $env.config = {
             name: completion_previous_menu
             modifier: shift
             keycode: backtab
-            mode: [emacs, vi_normal, vi_insert]
+            mode: [vi_normal, vi_insert]
             event: { send: menuprevious }
         }
-        {
-            name: ide_completion_menu
-            modifier: control
-            keycode: space
-            mode: [emacs vi_normal vi_insert]
-            event: {
-                until: [
-                    { send: menu name: ide_completion_menu }
-                    { send: menunext }
-                    { edit: complete }
-                ]
-            }
-        }
+        # {
+        #     name: ide_completion_menu
+        #     modifier: control
+        #     keycode: char_h
+        #     mode: [emacs vi_normal vi_insert]
+        #     event: {
+        #         until: [
+        #             { send: menu name: ide_completion_menu }
+        #             { send: menunext }
+        #             { edit: complete }
+        #         ]
+        #     }
+        # }
         {
             name: history_menu
             modifier: control
@@ -897,6 +897,7 @@ $env.config = {
     ]
 }
 
+alias nv = nvim
 alias lg = lazygit
 
 source ~/.zoxide.nu
