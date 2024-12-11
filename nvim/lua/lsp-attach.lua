@@ -16,23 +16,24 @@ local function configure_lsp(bufnr)
 	local bufleaderNmap = function(keys, func, desc)
 		set("n", "<leader>" .. keys, func, { buffer = bufnr, desc = desc })
 	end
+
 	local lspbuf = vim.lsp.buf
 
-	bufleaderNmap("h", lspbuf.hover, "[H]over")
-	bufleaderNmap("H", lspbuf.signature_help, "Signature [H]elp")
-	bufleaderNmap("rn", lspbuf.rename, "[R]e[N]ame")
-
+	bufleaderNmap("h", lspbuf.hover, "[h]over")
+	bufleaderNmap("k", lspbuf.signature_help, "Signature [H]elp")
+	set({ "i", "s", "v" }, "<C-k>", lspbuf.signature_help, { desc = "Signature Help", buffer = bufnr })
+	bufleaderNmap("rn", lspbuf.rename, "[r]e[n]ame")
 	-- Treesitter
-	bufnmap("gd", ts.lsp_definitions, "[G]oto [D]efinition")
-	bufnmap("gr", ts.lsp_references, "[G]oto [R]eferences")
-	bufnmap("gI", ts.lsp_implementations, "[G]oto [I]mplementation")
+	bufnmap("gd", ts.lsp_definitions, "[g]oto [d]efinition")
+	bufnmap("gr", ts.lsp_references, "[g]oto [r]eferences")
+	bufnmap("gI", ts.lsp_implementations, "[g]oto [i]mplementation")
 	bufleaderNmap("T", ts.lsp_type_definitions, "[T]ype Definition")
 	-- Document
-	bufleaderNmap("d", ts.lsp_document_symbols, "[D]ocument Symbols")
+	bufleaderNmap("d", ts.lsp_document_symbols, "[d]ocument Symbols")
 	-- Wocument lmao
 	-- Workspace
-	bufleaderNmap("w", ts.lsp_workspace_symbols, "[W]ocument Symbols")
-	bufleaderNmap("ss", ts.lsp_dynamic_workspace_symbols, "[S]earch [S]ymbols")
+	bufleaderNmap("w", ts.lsp_workspace_symbols, "[w]ocument Symbols")
+	bufleaderNmap("ss", ts.lsp_dynamic_workspace_symbols, "[s]earch [s]ymbols")
 
 	-- Code actions
 	bufleaderNmap("c", require("actions-preview").code_actions)
