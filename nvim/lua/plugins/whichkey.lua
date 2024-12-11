@@ -1,7 +1,7 @@
 return {
 	"folke/which-key.nvim",
 	opts = {
-		preset = "classic", -- or "modern" normally
+		preset = "modern", -- or "modern" normally
 		spec = {
 			{ "<leader>c", group = "[c]ode" },
 			{ "<leader>D", group = "[D]ebug" },

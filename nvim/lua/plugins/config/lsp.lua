@@ -7,7 +7,7 @@ vim.diagnostic.config({
 
 ---Default configuration func
 ---@param server_name string
----@param user_config lspconfig.Config?
+---@param user_config table?
 local function default_configure(server_name, user_config)
 	local user_settings = user_config or {}
 	lspconf[server_name].setup({
@@ -22,9 +22,7 @@ end
 
 vim.lsp.inlay_hint.enable(true)
 
---
 -- !!! SETUP SERVERS !!!
---
 
 lspconf.lua_ls.setup({
 	on_init = function(client)
@@ -41,7 +39,15 @@ lspconf.lua_ls.setup({
 			},
 		})
 	end,
-	on_attach = require("lsp-attach"),
+	on_attach = function(_, bufnr)
+		-- override formatting providers
+		require("lsp-attach")(_, bufnr)
+		vim.keymap.set("n", "<leader>f", function()
+			require("stylua-nvim").format_file()
+			print("Formatted Lua file with stylua")
+		end, { desc = "[f]ormat with stylua", buffer = bufnr })
+	end,
+
 	settings = {
 		Lua = {
 			completion = {
@@ -64,11 +70,18 @@ default_configure("clangd", {
 
 default_configure("bashls")
 default_configure("cmake")
-default_configure("cssls")
-default_configure("css_variables")
-default_configure("cssmodulesls")
 default_configure("gopls")
 default_configure("ruby_lsp")
+default_configure("marksman", {
+	on_attach = function(_, bufnr)
+		require("lsp-attach")(_, bufnr)
+		-- override lsp buf format
+		vim.keymap.set("n", "<leader>f", function()
+			vim.system({ "mdformat", vim.fn.expand("%") })
+			print("Formatted Markdown file with mdformat")
+		end, { desc = "Format with mdformat", buffer = bufnr })
+	end,
+})
 
 local swift_capabilities = vim.tbl_deep_extend(
 	"force",

@@ -100,32 +100,7 @@ local function delete_defaults(bufnr)
 end
 
 return function(_, bufnr)
-	local bufleaderNmap = function(keys, func, desc)
-		set("n", "<leader>" .. keys, func, { buffer = bufnr, desc = desc })
-	end
-
 	delete_defaults(bufnr)
 	configure_lsp(bufnr)
 	configure_diagnostic(bufnr)
-
-	-- override formatting providers
-	vim.api.nvim_create_autocmd("BufEnter", {
-		pattern = { "*.lua" },
-		callback = function()
-			bufleaderNmap("f", function()
-				require("stylua-nvim").format_file()
-				print("Formatted Lua file with stylua")
-			end, "[f]ormat with stylua")
-		end,
-	})
-
-	vim.api.nvim_create_autocmd("BufEnter", {
-		pattern = { "*.md" },
-		callback = function()
-			bufleaderNmap("f", function()
-				vim.cmd([[!mdformat %]])
-				print("Formatted Markdown file with mdformat")
-			end, "[F]ormat")
-		end,
-	})
 end

@@ -4,7 +4,6 @@ vim.diagnostic.config(
 	}
 
 )
-vim.lsp.omnifunc(1, 0)
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -73,4 +72,4 @@ vim.opt.inccommand = 'split'
 vim.opt.spell = false
 vim.opt.spelllang = { 'en_us' }
 
-vim.o.guicursor='a:block'
+vim.o.guicursor = 'a:block'
