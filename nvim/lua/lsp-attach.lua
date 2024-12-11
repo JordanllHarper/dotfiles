@@ -40,13 +40,13 @@ local function configure_lsp(bufnr)
 	-- Hints
 	bufleaderNmap("Lt", "<Cmd>ToggleHints<CR>", "[T]oggle hints")
 	cmd(bufnr, "ToggleHints", function(_)
-		require 'lsp-attach.toggle_virt_text'.toggle()
+		require("lsp-attach.toggle_virt_text").toggle()
 	end, "Toggle Virtual Text in Buffer")
 
 	-- Autoformat
 	bufleaderNmap("f", function()
 		lspbuf.format()
-		vim.notify("Formatted", vim.log.levels.INFO)
+		print("Formatted")
 	end, "[F]ormat")
 end
 
@@ -61,23 +61,20 @@ local function configure_diagnostic(bufnr)
 		set("n", "<leader>" .. keys, func, { buffer = bufnr, desc = desc })
 	end
 
-
 	local diagnostic = vim.diagnostic
 
 	local severity = diagnostic.severity
 	local severityOpts = { severity = { severity.WARN, severity.ERROR } }
 
 	bufnmap("[d", function()
-			diagnostic.goto_prev(severityOpts)
-		end,
-		"Go to previous diagnostic message")
+		diagnostic.goto_prev(severityOpts)
+	end, "Go to previous diagnostic message")
 
 	bufnmap("]d", function()
 		diagnostic.goto_next(severityOpts)
 	end, "Go to next diagnostic message")
 
 	bufleaderNmap("e", diagnostic.open_float, "Open [E]rror float")
-
 
 	-- Treesitter
 	bufleaderNmap("sd", function()
@@ -86,12 +83,13 @@ local function configure_diagnostic(bufnr)
 	bufleaderNmap("sD", ts.diagnostics, "[S]earch [D]iagnostics")
 end
 
-
 ---Deletes the default keybindings
 ---@param bufnr number
 local function delete_defaults(bufnr)
 	local bufdel = function(mode, lhs)
-		pcall(function() del(mode, lhs, { buffer = bufnr }) end)
+		pcall(function()
+			del(mode, lhs, { buffer = bufnr })
+		end)
 	end
 	bufdel("n", "grn")
 	bufdel("n", "gra")
@@ -101,15 +99,32 @@ local function delete_defaults(bufnr)
 end
 
 return function(_, bufnr)
+	local bufleaderNmap = function(keys, func, desc)
+		set("n", "<leader>" .. keys, func, { buffer = bufnr, desc = desc })
+	end
+
 	delete_defaults(bufnr)
 	configure_lsp(bufnr)
 	configure_diagnostic(bufnr)
 
-	cmd(bufnr, "Format", function(_)
-		require 'stylua-nvim'.format_file()
-	end, "Format current buffer with LSP")
+	-- override formatting providers
+	vim.api.nvim_create_autocmd("BufEnter", {
+		pattern = { "*.lua" },
+		callback = function()
+			bufleaderNmap("f", function()
+				require("stylua-nvim").format_file()
+				print("Formatted Lua file with stylua")
+			end, "[f]ormat with stylua")
+		end,
+	})
 
-	cmd(bufnr, "ToggleHints", function(_)
-		require 'lsp-attach.toggle_virt_text'.toggle()
-	end, "Toggle Virtual Text in Buffer")
+	vim.api.nvim_create_autocmd("BufEnter", {
+		pattern = { "*.md" },
+		callback = function()
+			bufleaderNmap("f", function()
+				vim.cmd([[!mdformat %]])
+				print("Formatted Markdown file with mdformat")
+			end, "[F]ormat")
+		end,
+	})
 end

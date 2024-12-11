@@ -18,7 +18,7 @@ local opts = {
   fvm = true,
   lsp = {
     on_attach = function(_, bufnr)
-      require('keymaps.lsp-attach')(_, bufnr)
+      require('lsp-attach')(_, bufnr)
       flutter_key_bindings()
     end,
     color = {

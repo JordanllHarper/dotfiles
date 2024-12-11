@@ -12,7 +12,7 @@ end
 ---Calls M.map but specifies the mode to be normal.
 ---@param lhs string
 ---@param rhs function | string
----@param desc string
+---@param desc string?
 function M.nmap(lhs, rhs, desc)
 	M.map('n', lhs, rhs, desc)
 end
