@@ -24,7 +24,6 @@ local opts = {
       separator = "",
     },
       { 'filename', },
-      { 'buffers' },
     },
     lualine_x = {
       { 'diagnostics' },
