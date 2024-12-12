@@ -26,6 +26,7 @@ local function configure_lsp(bufnr)
 	bufnmap("gr", ts.lsp_references, "[g]oto [r]eferences")
 	bufnmap("gI", ts.lsp_implementations, "[g]oto [i]mplementation")
 	bufleaderNmap("T", ts.lsp_type_definitions, "[T]ype Definition")
+	bufleaderNmap("Q", vim.lsp.codelens.run, "[Q]ode lense")
 	-- Document
 	bufleaderNmap("d", ts.lsp_document_symbols, "[d]ocument Symbols")
 	-- Wocument lmao
