@@ -4,8 +4,6 @@ local ts = require("telescope.builtin")
 local set = vim.keymap.set
 local del = vim.keymap.del
 
--- utils
-
 ---Configures the lsp keymaps
 ---@param bufnr number
 local function configure_lsp(bufnr)
