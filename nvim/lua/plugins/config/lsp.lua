@@ -2,7 +2,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protoc
 local lspconf = require("lspconfig")
 
 vim.diagnostic.config({
-	virtual_text = true,
+	severity_sort = true
 })
 
 ---Default configuration func
@@ -79,6 +79,8 @@ default_configure("marksman", {
 		vim.keymap.set("n", "<leader>f", function()
 			vim.system({ "mdformat", vim.fn.expand("%") })
 			print("Formatted Markdown file with mdformat")
+			vim.cmd("e")
+			vim.cmd("w!")
 		end, { desc = "Format with mdformat", buffer = bufnr })
 	end,
 })
