@@ -37,3 +37,11 @@ nmap("<M-.>", window_binding .. "5< ")
 nmap("<M-,>", window_binding .. "5>")
 nmap("<M-t>", window_binding .. "+")
 nmap("<M-s>", window_binding .. "-")
+
+-- tabs
+leaderNmap("]", function()
+	vim.cmd("tabnext")
+end, "Next tab")
+leaderNmap("[", function()
+	vim.cmd("tabprevious")
+end, "Previous tab")
