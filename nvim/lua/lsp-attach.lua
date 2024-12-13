@@ -65,15 +65,12 @@ local function configure_diagnostic(bufnr)
 
 	local diagnostic = vim.diagnostic
 
-	local severity = diagnostic.severity
-	local severityOpts = { severity = { severity.WARN, severity.ERROR } }
-
 	bufnmap("[d", function()
-		diagnostic.goto_prev(severityOpts)
+		diagnostic.jump({ count = -1, float = true })
 	end, "Go to previous diagnostic message")
 
 	bufnmap("]d", function()
-		diagnostic.goto_next(severityOpts)
+		diagnostic.jump({ count = 1, float = true })
 	end, "Go to next diagnostic message")
 
 	bufleaderNmap("e", diagnostic.open_float, "Open [E]rror float")
