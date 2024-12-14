@@ -44,12 +44,6 @@ local function configure_lsp(bufnr)
 	cmd(bufnr, "ToggleHints", function(_)
 		require("lsp-attach.toggle_virt_text").toggle()
 	end, "Toggle Virtual Text in Buffer")
-
-	-- Autoformat
-	bufleaderNmap("f", function()
-		lspbuf.format()
-		print("Formatted")
-	end, "[F]ormat")
 end
 
 ---Configures the default keymaps for diagnostics

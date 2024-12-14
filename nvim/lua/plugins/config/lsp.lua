@@ -2,7 +2,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protoc
 local lspconf = require("lspconfig")
 
 vim.diagnostic.config({
-	severity_sort = true
+	severity_sort = true,
 })
 
 ---Default configuration func
@@ -24,40 +24,7 @@ vim.lsp.inlay_hint.enable(true)
 
 -- !!! SETUP SERVERS !!!
 
-lspconf.lua_ls.setup({
-	on_init = function(client)
-		local path = client.workspace_folders[1].name
-		if vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc") then
-			return
-		end
-		client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-			runtime = {
-				version = "LuaJIT",
-			},
-			workspace = {
-				checkThirdParty = false,
-			},
-		})
-	end,
-	on_attach = function(_, bufnr)
-		-- override formatting providers
-		require("lsp-attach")(_, bufnr)
-		vim.keymap.set("n", "<leader>f", function()
-			require("stylua-nvim").format_file()
-			print("Formatted Lua file with stylua")
-		end, { desc = "[f]ormat with stylua", buffer = bufnr })
-	end,
-
-	settings = {
-		Lua = {
-			completion = {
-				callSnippet = "Both",
-				displayContext = 1,
-			},
-		},
-	},
-})
-
+default_configure("lua_ls")
 default_configure("clangd", {
 	cmd = {
 		"clangd",
@@ -67,23 +34,11 @@ default_configure("clangd", {
 		"--log=verbose",
 	},
 })
-
 default_configure("bashls")
 default_configure("cmake")
 default_configure("gopls")
 default_configure("ruby_lsp")
-default_configure("marksman", {
-	on_attach = function(_, bufnr)
-		require("lsp-attach")(_, bufnr)
-		-- override lsp buf format
-		vim.keymap.set("n", "<leader>f", function()
-			vim.system({ "mdformat", vim.fn.expand("%") })
-			print("Formatted Markdown file with mdformat")
-			vim.cmd("e")
-			vim.cmd("w!")
-		end, { desc = "Format with mdformat", buffer = bufnr })
-	end,
-})
+default_configure("marksman")
 
 local swift_capabilities = vim.tbl_deep_extend(
 	"force",

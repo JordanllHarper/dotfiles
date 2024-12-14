@@ -1,7 +1,9 @@
-# Nvim Setu
+Nvim Setup
+==========
 
 Based on [Kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
 
-## Hello world
+Start
+-----
 
 The code starts in [init](init.lua)
