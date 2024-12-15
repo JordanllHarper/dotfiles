@@ -60,11 +60,11 @@ local function configure_diagnostic(bufnr)
 	local diagnostic = vim.diagnostic
 
 	bufnmap("[d", function()
-		diagnostic.jump({ count = -1, float = true })
+		diagnostic.goto_prev()
 	end, "Go to previous diagnostic message")
 
 	bufnmap("]d", function()
-		diagnostic.jump({ count = 1, float = true })
+		diagnostic.goto_next()
 	end, "Go to next diagnostic message")
 
 	bufleaderNmap("e", diagnostic.open_float, "Open [E]rror float")
