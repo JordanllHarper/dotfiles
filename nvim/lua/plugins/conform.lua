@@ -7,7 +7,7 @@ return {
 			markdown = { "markdownfmt" },
 			rust = { "rustfmt", lsp_format = "fallback" },
 			go = { "gofmt" },
-			dart = { "dart_format" },
+			dart = { "dart_format", lsp_format = "fallback" },
 		},
 	},
 	config = function(_, opts)

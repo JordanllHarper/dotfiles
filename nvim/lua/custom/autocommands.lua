@@ -15,3 +15,16 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FileWritePost" },
 		end
 	}
 )
+vim.api.nvim_create_autocmd({"BufEnter"}, {
+	pattern = "*.md",
+	callback = function ()
+		vim.opt.spell = true
+	end
+})
+
+vim.api.nvim_create_autocmd({"BufLeave"}, {
+	pattern = "*.md",
+	callback = function ()
+		vim.opt.spell = false
+	end
+})
