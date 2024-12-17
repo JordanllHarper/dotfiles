@@ -11,14 +11,12 @@ return {
 		disable_line_numbers = false,
 		disable_relative_line_numbers = false,
 		commit_editor = {
-			kind = "vsplit"
+			kind = "vsplit",
 		},
 	},
 	config = function(_, opts)
 		local ng = require("neogit")
 		ng.setup(opts)
-		leaderNmap("go", function()
-			ng.open()
-		end, "[g]it [o]pen")
+		leaderNmap("go", ng.open, "[g]it [o]pen")
 	end,
 }
