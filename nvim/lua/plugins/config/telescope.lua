@@ -25,6 +25,7 @@ local opts = {
 }
 
 require('telescope').setup(opts)
+
 local ts = require 'telescope'
 ts.load_extension 'fzf'
 ts.load_extension 'undo'
