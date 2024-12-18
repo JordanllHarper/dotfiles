@@ -1,20 +1,18 @@
 return {
-	'akinsho/flutter-tools.nvim',
-	dev = false,
+	"akinsho/flutter-tools.nvim",
 	dependencies = {
-		'nvim-lua/plenary.nvim',
+		"nvim-lua/plenary.nvim",
 		{
-			'stevearc/dressing.nvim',
+			"stevearc/dressing.nvim",
 			enabled = false,
 			opts = {
 				input = {
-					enabled = false
-				}
-			}
+					enabled = false,
+				},
+			},
 		},
-		'rcarriga/nvim-notify',
 	},
 	config = function()
-		require 'plugins.config.flutter-tools'
-	end
+		require("plugins.config.flutter-tools")
+	end,
 }

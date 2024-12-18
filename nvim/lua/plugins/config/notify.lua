@@ -5,7 +5,7 @@ local opts = {
 }
 require 'notify'.setup(opts)
 
-local leaderNmap = require 'utils'.leaderNmap
+local leaderNmap = require 'utils'.leader_nmap
 leaderNmap('sn', require('telescope').extensions.notify.notify,
   '[s]earch [n]otifications')
 vim.notify = require("notify")

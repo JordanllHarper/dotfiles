@@ -8,6 +8,6 @@ return {
 
   config = function()
     -- Lazygit
-    require 'utils'.leaderNmap('lg', require('lazygit').lazygit, '[L]azy[G]it')
+    require 'utils'.leader_nmap('lg', require('lazygit').lazygit, '[L]azy[G]it')
   end
 }

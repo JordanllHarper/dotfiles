@@ -6,7 +6,7 @@
 -- <A> = Alt/Option
 
 local map = require("utils").map
-local leaderNmap = require("utils").leaderNmap
+local leaderNmap = require("utils").leader_nmap
 
 map({ "n", "v" }, "<Space>", "<Nop>")
 -- Remap for dealing with word wrap

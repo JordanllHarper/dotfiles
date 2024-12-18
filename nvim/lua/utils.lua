@@ -3,7 +3,7 @@ local M = {}
 ---Alias for vim.keymap.set. Sets defaults: silent and noremap
 ---@param mode string | table
 ---@param lhs string
----@param rhs function | string 
+---@param rhs function | string
 ---@param desc string?
 function M.map(mode, lhs, rhs, desc)
 	vim.keymap.set(mode, lhs, rhs, { silent = true, desc = desc, noremap = true })
@@ -14,39 +14,39 @@ end
 ---@param rhs function | string
 ---@param desc string?
 function M.nmap(lhs, rhs, desc)
-	M.map('n', lhs, rhs, desc)
+	M.map("n", lhs, rhs, desc)
 end
 
 ---Calls M.map but specifies the mode to be insert.
 ---@param lhs string
 ---@param rhs function | string
----@param desc string
+---@param desc string?
 function M.imap(lhs, rhs, desc)
-	M.map('i', lhs, rhs, desc)
+	M.map("i", lhs, rhs, desc)
 end
 
 ---Calls M.map and specifies using the '<leader>' prefix for the keymap.
 ---@param mode string | table
 ---@param lhs string
 ---@param rhs function | string
----@param desc string
-function M.leaderMap(mode, lhs, rhs, desc)
-	M.map(mode, '<leader>' .. lhs, rhs, desc)
+---@param desc string?
+function M.leader_map(mode, lhs, rhs, desc)
+	M.map(mode, ("<leader>%s"):format(lhs) , rhs, desc)
 end
 
----Calls M.map, specifies using the '<leader>' prefix for the keymap and uses normal mode. 
+---Calls M.map, specifies using the '<leader>' prefix for the keymap and uses normal mode.
 ---@param lhs string
 ---@param rhs function | string
----@param desc string
-function M.leaderNmap(lhs, rhs, desc)
-	M.nmap('<leader>' .. lhs, rhs, desc)
+---@param desc string?
+function M.leader_nmap(lhs, rhs, desc)
+	M.nmap(("<leader>%s"):format(lhs), rhs, desc)
 end
 
 ---Creates a user command for the given buffer.
 ---@param bufnr number
 ---@param name string
 ---@param command string | function
----@param desc string
+---@param desc string?
 function M.custom_buf_user_command(bufnr, name, command, desc)
 	vim.api.nvim_buf_create_user_command(bufnr, name, command, { desc = desc })
 end
@@ -54,9 +54,17 @@ end
 ---Creates a global user command.
 ---@param name string
 ---@param command string | function
----@param desc string
+---@param desc string?
 function M.custom_user_command(name, command, desc)
 	vim.api.nvim_create_user_command(name, command, { desc = desc })
+end
+
+function M.map_vim_command(mode, lhs, rhs, desc)
+	M.map(mode, lhs, ("<Cmd>%s<CR>"):format(rhs), desc)
+end
+
+function M.leader_nmap_cmd(lhs, rhs, desc)
+	M.leader_nmap(lhs, ("<Cmd>%s<CR>"):format(rhs), desc)
 end
 
 return M

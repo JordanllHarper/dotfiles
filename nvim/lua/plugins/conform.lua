@@ -1,4 +1,4 @@
-local leaderNmap = require("utils").leaderNmap
+local leaderNmap = require("utils").leader_nmap
 return {
 	"stevearc/conform.nvim",
 	opts = {

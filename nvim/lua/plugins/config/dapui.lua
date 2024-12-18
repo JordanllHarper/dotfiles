@@ -4,4 +4,4 @@ local opts = {}
 
 dapui.setup(opts)
 
-map.leaderNmap("Dv", dapui.toggle, "Toggle [V]iew")
+map.leader_nmap("Dv", dapui.toggle, "Toggle [V]iew")

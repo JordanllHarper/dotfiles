@@ -1,6 +1,6 @@
 local map = vim.keymap.set
 local nmap = require("utils").nmap
-local leaderNmap = require("utils").leaderNmap
+local leaderNmap = require("utils").leader_nmap
 
 -- Quickfix
 leaderNmap("qo", "<Cmd>copen<CR>", "[Q]uickfix [O]pen")

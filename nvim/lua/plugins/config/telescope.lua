@@ -33,7 +33,7 @@ ts.load_extension 'undo'
 -- telescope keymaps
 local builtin = require('telescope.builtin')
 
-local leaderNmap = require 'utils'.leaderNmap
+local leaderNmap = require 'utils'.leader_nmap
 
 leaderNmap('?', builtin.oldfiles, '[?] Find recently opened files')
 leaderNmap('<leader>', builtin.buffers, '[ ] Find existing buffers')
