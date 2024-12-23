@@ -3,16 +3,20 @@ return {
 	"stevearc/conform.nvim",
 	opts = {
 		formatters_by_ft = {
-			-- lua = { "stylua" },
+			lua = { "fallback" },
 			rust = { "rustfmt", lsp_format = "fallback" },
 			go = { "gofmt" },
 			dart = { "dart_format", lsp_format = "fallback" },
 		},
-		-- formatters= {
-		-- 	tidy_markdown = {
-		-- 		command = "tidy_markdown"
-		-- 	}
-		-- }
+		default_format_opts = {
+			lsp_format = "fallback",
+			timeout_ms = 500,
+		},
+		format_on_save = {
+			-- I recommend these options. See :help conform.format for details.
+			lsp_format = "fallback",
+			timeout_ms = 500,
+		},
 	},
 	config = function(_, opts)
 		require("conform").setup(opts)

@@ -1,7 +1,6 @@
-return
-{
+return {
 	"rebelot/kanagawa.nvim",
 	opts = {},
 	theme = "wave",
-	priority = 1000
+	priority = 1000,
 }
