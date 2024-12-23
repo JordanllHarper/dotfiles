@@ -3,12 +3,16 @@ return {
 	"stevearc/conform.nvim",
 	opts = {
 		formatters_by_ft = {
-			lua = { "stylua" },
-			markdown = { "markdownfmt" },
+			-- lua = { "stylua" },
 			rust = { "rustfmt", lsp_format = "fallback" },
 			go = { "gofmt" },
 			dart = { "dart_format", lsp_format = "fallback" },
 		},
+		-- formatters= {
+		-- 	tidy_markdown = {
+		-- 		command = "tidy_markdown"
+		-- 	}
+		-- }
 	},
 	config = function(_, opts)
 		require("conform").setup(opts)
