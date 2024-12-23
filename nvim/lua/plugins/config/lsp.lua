@@ -39,6 +39,7 @@ default_configure("cmake")
 default_configure("gopls")
 default_configure("ruby_lsp")
 default_configure("marksman")
+default_configure("ltex-ls")
 
 local swift_capabilities = vim.tbl_deep_extend(
 	"force",
