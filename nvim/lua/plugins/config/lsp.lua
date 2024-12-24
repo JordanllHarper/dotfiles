@@ -1,4 +1,4 @@
-local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("blink-cmp").get_lsp_capabilities()
 local lspconf = require("lspconfig")
 
 vim.diagnostic.config({
@@ -20,6 +20,7 @@ local function default_configure(server_name, user_config)
 	})
 end
 
+
 vim.lsp.inlay_hint.enable(true)
 
 -- !!! SETUP SERVERS !!!
@@ -39,7 +40,11 @@ default_configure("cmake")
 default_configure("gopls")
 default_configure("ruby_lsp")
 default_configure("marksman")
-default_configure("ltex-ls")
+default_configure("ltex",
+	{
+		settings = {
+		}
+	})
 
 local swift_capabilities = vim.tbl_deep_extend(
 	"force",

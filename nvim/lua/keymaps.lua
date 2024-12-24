@@ -31,17 +31,10 @@ end)
 leaderNmap("Li", "<Cmd>LspInfo<CR>", "[L]sp [I]nfo")
 leaderNmap("Lr", "<Cmd>LspRestart<CR>", "[L]sp [R]estart")
 
--- Window resizing
-local window_binding = "<C-w>"
-nmap("<M-.>", window_binding .. "5< ")
-nmap("<M-,>", window_binding .. "5>")
-nmap("<M-t>", window_binding .. "+")
-nmap("<M-s>", window_binding .. "-")
-
 -- tabs
 leaderNmap("]", function()
-	vim.cmd("tabnext")
-end, "Next tab")
+	vim.cmd("bnext")
+end, "Next buffer")
 leaderNmap("[", function()
-	vim.cmd("tabprevious")
-end, "Previous tab")
+	vim.cmd("bprevious")
+end, "Previous buffer")

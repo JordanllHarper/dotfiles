@@ -1,11 +1,10 @@
-local opts = {
+require 'nvim-treesitter.configs'.setup {
   sync_install          = true,
   ignore_install        = { 'dart' },
   modules               = {},
-  -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed      = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript',
-    'vimdoc', 'vim',
-    'bash' },
+  ensure_installed      = {
+    'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash'
+  },
 
   highlight             = { enable = true },
   indent                = { enable = true },
@@ -63,4 +62,3 @@ local opts = {
     },
   },
 }
-require 'nvim-treesitter.configs'.setup(opts)

@@ -1,18 +1,22 @@
 return {
-  -- Highlight, edit, and navigate code
-  'nvim-treesitter/nvim-treesitter',
-  dependencies = {
-    { 'nvim-treesitter/nvim-treesitter-textobjects' },
-    {
-      'nvim-treesitter/nvim-treesitter-context',
-      opts = {},
-
-    },
-    -- NOTE: additional parser
-    { "nushell/tree-sitter-nu",                     build = ":TSUpdate nu" },
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    opts = {},
   },
-  build = ':TSUpdate',
-  config = function()
-    require 'plugins.config.treesitter'
-  end
+  {
+    'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      { 'nvim-treesitter/nvim-treesitter-textobjects' },
+    },
+    build = ':TSUpdate',
+    config = function()
+      require 'plugins.config.treesitter'
+    end
+  },
+  {
+    "nushell/tree-sitter-nu",
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+    build = ":TSUpdate nu"
+  },
 }
