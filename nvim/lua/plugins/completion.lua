@@ -41,7 +41,7 @@ return {
       { 'L3MON4D3/LuaSnip', version = 'v2.*' }
     },
 
-    version = '*',
+    version = '0.8.1',
 
     opts = {
       snippets = {

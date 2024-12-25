@@ -24,7 +24,11 @@ return {
         end,
         settings = {
           ltex = {
-            language = "en-GB"
+            checkFrequency = "save",
+            language = "en-GB",
+            additionalRules = {
+              motherTongue = "en-GB"
+            }
           }
         }
       },

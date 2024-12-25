@@ -7,40 +7,40 @@ local del = vim.keymap.del
 ---Configures the lsp keymaps
 ---@param bufnr number
 local function configure_lsp(bufnr)
-	local bufnmap = function(keys, func, desc)
+	local buf_nmap = function(keys, func, desc)
 		set("n", keys, func, { buffer = bufnr, desc = desc })
 	end
 
-	local bufleaderNmap = function(keys, func, desc)
+	local buf_leader_nmap = function(keys, func, desc)
 		set("n", "<leader>" .. keys, func, { buffer = bufnr, desc = desc })
 	end
 
 	local lspbuf = vim.lsp.buf
 
-	bufleaderNmap("h", lspbuf.hover, "[h]over")
-	bufleaderNmap("k", lspbuf.signature_help, "Signature [H]elp")
+	buf_leader_nmap("h", lspbuf.hover, "[h]over")
+	buf_leader_nmap("k", lspbuf.signature_help, "Signature [H]elp")
 	set({ "i", "s", "v" }, "<C-k>", lspbuf.signature_help, { desc = "Signature Help", buffer = bufnr })
-	bufleaderNmap("rn", lspbuf.rename, "[r]e[n]ame")
+	buf_leader_nmap("rn", lspbuf.rename, "[r]e[n]ame")
 	-- Treesitter
-	bufnmap("gd", ts.lsp_definitions, "[g]oto [d]efinition")
-	bufnmap("gr", function()
+	buf_nmap("gd", ts.lsp_definitions, "[g]oto [d]efinition")
+	buf_nmap("gr", function()
 		ts.lsp_references({ include_declaration = false, include_current_line = false })
 	end, "[g]oto [r]eferences")
-	bufnmap("gI", ts.lsp_implementations, "[g]oto [i]mplementation")
-	bufleaderNmap("T", ts.lsp_type_definitions, "[T]ype Definition")
-	bufleaderNmap("Q", vim.lsp.codelens.run, "[Q]ode lense")
+	buf_nmap("gI", ts.lsp_implementations, "[g]oto [i]mplementation")
+	buf_leader_nmap("T", ts.lsp_type_definitions, "[T]ype Definition")
+	buf_leader_nmap("Q", vim.lsp.codelens.run, "[Q]ode lense")
 	-- Document
-	bufleaderNmap("d", ts.lsp_document_symbols, "[d]ocument Symbols")
+	buf_leader_nmap("d", ts.lsp_document_symbols, "[d]ocument Symbols")
 	-- Wocument lmao
 	-- Workspace
-	bufleaderNmap("w", ts.lsp_workspace_symbols, "[w]ocument Symbols")
-	bufleaderNmap("ss", ts.lsp_dynamic_workspace_symbols, "[s]earch [s]ymbols")
+	buf_leader_nmap("w", ts.lsp_workspace_symbols, "[w]ocument Symbols")
+	buf_leader_nmap("ss", ts.lsp_dynamic_workspace_symbols, "[s]earch [s]ymbols")
 
 	-- Code actions
-	bufleaderNmap("c", require("actions-preview").code_actions)
+	buf_leader_nmap("c", require("actions-preview").code_actions)
 
 	-- Hints
-	bufleaderNmap("Lt", "<Cmd>ToggleHints<CR>", "[T]oggle hints")
+	buf_leader_nmap("Lt", "<Cmd>ToggleHints<CR>", "[T]oggle hints")
 	cmd(bufnr, "ToggleHints", function(_)
 		require("lsp-attach.toggle_virt_text").toggle()
 	end, "Toggle Virtual Text in Buffer")
@@ -49,31 +49,31 @@ end
 ---Configures the default keymaps for diagnostics
 ---@param bufnr number
 local function configure_diagnostic(bufnr)
-	local bufnmap = function(keys, func, desc)
+	local buf_nmap = function(keys, func, desc)
 		set("n", keys, func, { buffer = bufnr, desc = desc })
 	end
 
-	local bufleaderNmap = function(keys, func, desc)
+	local buf_leader_nmap = function(keys, func, desc)
 		set("n", "<leader>" .. keys, func, { buffer = bufnr, desc = desc })
 	end
 
 	local diagnostic = vim.diagnostic
 
-	bufnmap("[d", function()
-		diagnostic.goto_prev()
+	buf_nmap("[d", function()
+		diagnostic.jump { count = -1 }
 	end, "Go to previous diagnostic message")
 
-	bufnmap("]d", function()
-		diagnostic.goto_next()
+	buf_nmap("]d", function()
+		diagnostic.jump { count = 1 }
 	end, "Go to next diagnostic message")
 
-	bufleaderNmap("e", diagnostic.open_float, "Open [E]rror float")
+	buf_leader_nmap("e", diagnostic.open_float, "Open [E]rror float")
 
 	-- Treesitter
-	bufleaderNmap("sd", function()
+	buf_leader_nmap("sd", function()
 		ts.diagnostics({ bufnr = 0 })
 	end, "[S]earch [D]iagnostics (current buffer)")
-	bufleaderNmap("sD", ts.diagnostics, "[S]earch [D]iagnostics")
+	buf_leader_nmap("sD", ts.diagnostics, "[S]earch [D]iagnostics")
 end
 
 ---Deletes the default keybindings

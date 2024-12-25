@@ -6,7 +6,7 @@
 -- <A> = Alt/Option
 
 local map = require("utils").map
-local leaderNmap = require("utils").leader_nmap
+local leader_nmap = require("utils").leader_nmap
 
 map({ "n", "v" }, "<Space>", "<Nop>")
 -- Remap for dealing with word wrap
@@ -20,45 +20,43 @@ require("keymaps")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-	defaults = {
-		lazy = true,
-		dev = {
-			path = "~/projects",
-		},
-		rocks = {
-			enabled = false,
-		},
-		checker = {
-			enabled = true,
-		},
-		profiling = {
-			loading = true,
-			require = true,
-		},
-		performance = {
-			enabled = true,
-		},
-	},
-	{ import = "plugins" },
-	-- personal plugins
-	-- { import = 'plugins/custom' },
-	{ import = "themes" },
-})
+require("lazy").setup {
+  defaults = {
+    lazy = true,
+    dev = {
+      path = "~/projects",
+    },
+    rocks = {
+      enabled = false,
+    },
+    checker = {
+      enabled = true,
+    },
+    profiling = {
+      loading = true,
+      require = true,
+    },
+    performance = {
+      enabled = true,
+    },
+  },
+  { import = "plugins" },
+  { import = "themes" },
+}
 
 vim.cmd([[colorscheme kanagawa]])
-leaderNmap("ln", "<Cmd>Lazy<CR>", "[l]azy [n]vim")
-leaderNmap("lr", ":Lazy reload", "[l]azy [r]eload")
+leader_nmap("ln", "<Cmd>Lazy<CR>", "[l]azy [n]vim")
+leader_nmap("lr", ":Lazy reload", "[l]azy [r]eload")
 -- vim: ts=2 sts=2 sw=2 et
