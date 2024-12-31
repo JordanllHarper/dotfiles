@@ -11,27 +11,4 @@ return {
       require 'plugins.config.lsp'
     end,
   },
-  {
-    "barreiroleo/ltex_extra.nvim",
-    ft = { "markdown", "tex" },
-    dependencies = { "neovim/nvim-lspconfig" },
-    -- yes, you can use the opts field, just I'm showing the setup explicitly
-    opts = {
-      server_opts = {
-        capabilities = require('blink-cmp').get_lsp_capabilities(),
-        on_attach = function(client, bufnr)
-          require("lsp-attach")(client, bufnr)
-        end,
-        settings = {
-          ltex = {
-            checkFrequency = "save",
-            language = "en-GB",
-            additionalRules = {
-              motherTongue = "en-GB"
-            }
-          }
-        }
-      },
-    }
-  }
 }
