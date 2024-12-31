@@ -31,10 +31,18 @@ end)
 leader_nmap("Li", "<Cmd>LspInfo<CR>", "[L]sp [I]nfo")
 leader_nmap("Lr", "<Cmd>LspRestart<CR>", "[L]sp [R]estart")
 
--- tabs
+-- buffers
 leader_nmap("]", function()
 	vim.cmd("bnext")
 end, "Next buffer")
 leader_nmap("[", function()
 	vim.cmd("bprevious")
 end, "Previous buffer")
+
+leader_nmap("b", function()
+	vim.cmd("bdelete")
+end, "Delete buffer")
+
+leader_nmap("B", function()
+	vim.cmd("bdelete!")
+end, "Delete buffer (override)")
