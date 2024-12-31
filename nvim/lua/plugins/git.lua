@@ -1,3 +1,4 @@
+local nmap = require("utils").nmap
 local leaderNmap = require("utils").leader_nmap
 local leaderNmapCmd = require("utils").leader_nmap_cmd
 return {
@@ -17,6 +18,13 @@ return {
 				leaderNmap("gs", gs.stage_hunk, "[g]it [s]tage hunk")
 				leaderNmap("gr", gs.reset_hunk, "[g]it [r]eset hunk")
 				leaderNmap("gS", gs.stage_buffer, "[g]it [S]tage buffer")
+
+				nmap("[h", function()
+					gs.nav_hunk('prev')
+				end, "Next [h]unk")
+				nmap("]h", function()
+					gs.nav_hunk('next')
+				end, "Next [h]unk")
 			end,
 		},
 	},
