@@ -7,6 +7,7 @@ return {
 		config = function()
 			leaderNmapCmd("gc", "Git commit", "[g]it [C]ommit")
 			leaderNmapCmd("G", "Git", "[g]it [C]ommit")
+			leaderNmapCmd("gp", "Git push", "[g]it [p]ush")
 		end,
 	},
 	{
