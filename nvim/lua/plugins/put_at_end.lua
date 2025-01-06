@@ -2,9 +2,5 @@ local imap = require("utils").imap
 return {
 	"rareitems/put_at_end.nvim",
 	lazy = false,
-	config = function()
-		local at_end = require("put_at_end")
-		imap("<C-p>", at_end.put_semicolon)
-		imap("<C-a>", at_end.put_comma)
-	end,
+	config = function() imap("<C-p>", require("put_at_end").put_semicolon) end,
 }
