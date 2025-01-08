@@ -8,11 +8,11 @@ nmap("]q", "<Cmd>cnext<CR>", "Next [Q]uickfix")
 nmap("[q", "<Cmd>cprev<CR>", "Previous [Q]uickfix")
 
 -- Terminal
-leader_nmap("t", function()
+leader_nmap("T", function()
 	vim.cmd("hor split")
 	vim.cmd("winc j")
 	vim.cmd.term()
-end, "[T]erminal")
+end, "[t]erminal")
 --
 map("t", "<C-q>", "<C-\\><C-n>", { silent = true, desc = "[Q]uit terminal mode" })
 

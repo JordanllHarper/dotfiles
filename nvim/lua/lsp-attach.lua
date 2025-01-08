@@ -27,7 +27,7 @@ local function configure_lsp(bufnr)
 		ts.lsp_references({ include_declaration = false, include_current_line = false })
 	end, "[g]oto [r]eferences")
 	buf_nmap("gI", ts.lsp_implementations, "[g]oto [i]mplementation")
-	buf_leader_nmap("T", ts.lsp_type_definitions, "[T]ype Definition")
+	buf_leader_nmap("t", ts.lsp_type_definitions, "[t]ype Definition")
 	buf_leader_nmap("Q", vim.lsp.codelens.run, "[Q]ode lense")
 	-- Document
 	buf_leader_nmap("d", ts.lsp_document_symbols, "[d]ocument Symbols")
