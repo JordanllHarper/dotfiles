@@ -39,6 +39,14 @@ leader_nmap("[", function()
 	vim.cmd("bprevious")
 end, "Previous buffer")
 
+leader_nmap("b", function()
+	vim.cmd("bdelete")
+end, "Delete buffer")
+
+leader_nmap("B", function()
+	vim.cmd("bdelete!")
+end, "Delete buffer (override)")
+
 
 -- tabs
 leader_nmap(">", function()
