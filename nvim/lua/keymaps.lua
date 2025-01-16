@@ -22,11 +22,6 @@ leader_nmap("S", function()
 	vim.notify("Sourced current Lua file", vim.log.levels.INFO, {})
 end, "[S]ource luafile")
 
-map("v", "S", function()
-	print("Sourcing current lua selection...")
-	vim.cmd("'<,'>source")
-end)
-
 -- Lsp
 leader_nmap("Li", "<Cmd>LspInfo<CR>", "[L]sp [I]nfo")
 leader_nmap("Lr", "<Cmd>LspRestart<CR>", "[L]sp [R]estart")
