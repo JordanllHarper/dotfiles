@@ -7,8 +7,8 @@ return {
     options = {
       icons_enabled = true,
       theme = 'kanagawa',
-      component_separators = { left = '', right = '' },
-      section_separators = { left = '', right = '' },
+      component_separators = { left = '', right = '' },
+      section_separators = { left = '', right = '' },
     },
     extensions = { 'lazy', 'fugitive' },
     sections = {
@@ -32,6 +32,7 @@ return {
       lualine_y = { { 'branch', }, },
       lualine_z = { { 'location', },
         { 'progress' },
+        { 'datetime', style = "%H:%M" },
       },
     },
   },
