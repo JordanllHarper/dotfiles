@@ -37,7 +37,8 @@ local function configure_lsp(bufnr)
 	buf_leader_nmap("ss", ts.lsp_dynamic_workspace_symbols, "[s]earch [s]ymbols")
 
 	-- Code actions
-	buf_leader_nmap("c", require("actions-preview").code_actions)
+	buf_leader_nmap("c", require('actions-preview').code_actions)
+
 
 	-- Hints
 	buf_leader_nmap("Lt", "<Cmd>ToggleHints<CR>", "[T]oggle hints")
@@ -77,11 +78,10 @@ local function configure_diagnostic(bufnr)
 end
 
 ---Deletes the default keybindings
----@param bufnr number
-local function delete_defaults(bufnr)
+local function delete_defaults()
 	local bufdel = function(mode, lhs)
 		pcall(function()
-			del(mode, lhs, { buffer = bufnr })
+			del(mode, lhs)
 		end)
 	end
 	bufdel("n", "grn")
@@ -92,7 +92,7 @@ local function delete_defaults(bufnr)
 end
 
 return function(_, bufnr)
-	delete_defaults(bufnr)
+	delete_defaults()
 	configure_lsp(bufnr)
 	configure_diagnostic(bufnr)
 end

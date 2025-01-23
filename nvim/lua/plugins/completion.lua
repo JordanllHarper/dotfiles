@@ -1,6 +1,7 @@
 return {
   {
     "L3MON4D3/LuaSnip",
+    dependencies = "rafamadriz/friendly-snippets",
     version = "v2.*",
     build = "make install_jsregexp",
     config = function()
@@ -25,7 +26,7 @@ return {
       end)
 
       -- jump forwards
-      map({ 'n', 'i', 's' }, "<C-s>", function()
+      map({ 'n', 'i', 's' }, "<C-b>", function()
         if ls.jumpable() then
           ls.jump(1)
         end
@@ -37,8 +38,8 @@ return {
 
     -- optional: provides snippets for the snippet source
     dependencies = {
-      'rafamadriz/friendly-snippets',
-      { 'L3MON4D3/LuaSnip', version = 'v2.*' }
+      { 'rafamadriz/friendly-snippets' },
+      { 'L3MON4D3/LuaSnip',            version = 'v2.*' }
     },
 
     version = '*',
@@ -57,6 +58,7 @@ return {
         preset = 'default',
         ['<C-l>'] = { 'select_and_accept' },
         ['<C-h>'] = { 'show' },
+        ['<Tab>'] = {},
       },
       appearance = {
         use_nvim_cmp_as_default = true,

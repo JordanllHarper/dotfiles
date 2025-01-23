@@ -29,4 +29,11 @@ return {
 			end,
 		},
 	},
+	{
+		"kdheepak/lazygit.nvim",
+		dependencies = "nvim-lua/plenary.nvim",
+		config = function()
+			require 'utils'.leader_nmap('lg', require('lazygit').lazygit, '[L]azy[G]it')
+		end
+	}
 }
