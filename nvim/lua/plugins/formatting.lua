@@ -8,6 +8,7 @@ return {
 				rust = { "rustfmt" },
 				go = { "gofmt" },
 				dart = { "dart_format" },
+				json = { "deno_fmt" }
 			},
 			default_format_opts = {
 				lsp_format = "fallback",
