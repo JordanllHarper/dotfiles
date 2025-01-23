@@ -60,12 +60,19 @@ local function configure_diagnostic(bufnr)
 
 	local diagnostic = vim.diagnostic
 
+	local function diagnostic_jump(count)
+		diagnostic.jump {
+			count = count,
+			severity = vim.diagnostic.severity.WARN
+		}
+	end
+
 	buf_nmap("[d", function()
-		diagnostic.jump { count = -1 }
+		diagnostic_jump(-1)
 	end, "Go to previous diagnostic message")
 
 	buf_nmap("]d", function()
-		diagnostic.jump { count = 1 }
+		diagnostic_jump(1)
 	end, "Go to next diagnostic message")
 
 	buf_leader_nmap("e", diagnostic.open_float, "Open [E]rror float")
