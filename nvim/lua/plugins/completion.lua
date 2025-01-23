@@ -5,6 +5,7 @@ return {
     version = "v2.*",
     build = "make install_jsregexp",
     config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
       local ls = require 'luasnip'
       local map = require('utils').map
 
@@ -35,12 +36,7 @@ return {
   },
   {
     'saghen/blink.cmp',
-
-    -- optional: provides snippets for the snippet source
-    dependencies = {
-      { 'rafamadriz/friendly-snippets' },
-      { 'L3MON4D3/LuaSnip',            version = 'v2.*' }
-    },
+    dependencies = "L3MON4D3/LuaSnip",
 
     version = '*',
 
