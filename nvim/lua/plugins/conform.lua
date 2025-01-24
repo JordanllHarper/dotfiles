@@ -3,10 +3,10 @@ return {
 	"stevearc/conform.nvim",
 	opts = {
 		formatters_by_ft = {
-			lua = { "fallback" },
+			lua = { lsp_format = "fallback" },
 			rust = { "rustfmt", lsp_format = "fallback" },
 			go = { "gofmt" },
-			dart = { "dart_format", lsp_format = "fallback" },
+			dart = { lsp_format = "fallback" },
 			python = { "autopep8", lsp_format = "fallback" }
 		},
 		default_format_opts = {

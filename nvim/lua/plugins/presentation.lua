@@ -15,7 +15,11 @@ return {
 	},
 	{
 		'MeanderingProgrammer/render-markdown.nvim',
-		opts = {},
+		opts = {
+			latex = {
+				enabled = false
+			}
+		},
 		dependencies = {
 			'nvim-treesitter/nvim-treesitter',
 			'nvim-tree/nvim-web-devicons',
@@ -23,9 +27,10 @@ return {
 	},
 	{
 		"aznhe21/actions-preview.nvim",
-		config = function()
-			require 'plugins.config.actions-preview'
-		end
+		opts = {
+			telescope = require 'telescope.themes'.get_cursor
+				{ previewer = false },
+		},
 	},
 	{
 		"stevearc/dressing.nvim",
@@ -51,8 +56,8 @@ return {
 			options = {
 				icons_enabled = true,
 				theme = 'kanagawa',
-				component_separators = { left = '', right = '' },
-				section_separators = { left = '', right = '' },
+				component_separators = { left = '', right = '' },
+				section_separators = { left = '', right = '' },
 			},
 			extensions = { 'fugitive' },
 			sections = {
@@ -62,14 +67,13 @@ return {
 						fmt = function(displayed_mode)
 							return displayed_mode:sub(1, 1)
 						end,
-					}
+					},
+					{ 'buffers', },
 				},
 				lualine_b = {
 					{ 'diff' },
 				},
-				lualine_c = {
-					{ 'buffers', },
-				},
+				lualine_c = {},
 				lualine_x = {
 					{ 'diagnostics' },
 				},

@@ -37,8 +37,7 @@ local function configure_lsp(bufnr)
 	buf_leader_nmap("ss", ts.lsp_dynamic_workspace_symbols, "[s]earch [s]ymbols")
 
 	-- Code actions
-	buf_leader_nmap("c", require('actions-preview').code_actions)
-
+	buf_leader_nmap("c", require('actions-preview').code_actions, "[c]ode action")
 
 	-- Hints
 	buf_leader_nmap("Lt", "<Cmd>ToggleHints<CR>", "[T]oggle hints")
