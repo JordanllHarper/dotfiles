@@ -62,7 +62,7 @@ local function configure_diagnostic(bufnr)
 	local function diagnostic_jump(count)
 		diagnostic.jump {
 			count = count,
-			severity = vim.diagnostic.severity.WARN
+			severity = { min = vim.diagnostic.severity.WARN }
 		}
 	end
 
