@@ -1,7 +1,39 @@
-local default_keymaps = {
-  ['<C-b>'] = require 'telescope.actions'.delete_buffer,
-  ['<C-s>'] = require 'telescope.actions'.select_horizontal
+local ts = require 'telescope'
+local themes = require 'telescope.themes'
+local actions = require 'telescope.actions'
+local builtin = require 'telescope.builtin'
+local leaderNmap = require 'utils'.leader_nmap
+local batchMap = require 'utils'.batchMap
+
+local global_keymaps = {
+  ['<C-b>'] = actions.delete_buffer,
+  ['<C-s>'] = actions.select_horizontal
 }
+
+
+
+local dropdown = themes.get_dropdown {
+  winblend = 10,
+  previewer = false,
+}
+
+local ts_mappings = {
+  { '?',        builtin.oldfiles,                                                                   '[?] Find recently opened files' },
+  { '<leader>', function() builtin.buffers(themes.get_ivy()) end,                                   '[ ] Find existing buffers' },
+  { '/',        function() builtin.current_buffer_fuzzy_find(dropdown) end,                         '[/] Fuzzily search in current buffer' },
+  { 'sF',       function() builtin.find_files { hidden = true, } end,                               '[s]earch All [F]iles (including hidden)' },
+  { 'sf',       builtin.find_files,                                                                 '[s]earch [f]iles' },
+  { 'sh',       builtin.help_tags,                                                                  '[s]earch [h]elp' },
+  { 'sH',       builtin.search_history,                                                             '[s]earch [H]istory' },
+  { 'sg',       builtin.live_grep,                                                                  '[s]earch by [g]rep' },
+  { 'sr',       builtin.resume,                                                                     '[s]earch [r]esume' },
+  { 'sR',       builtin.registers,                                                                  '[s]earch [R]egisters' },
+  { 'sS',       function() builtin.spell_suggest(themes.get_cursor { border = true }) end,          "[s]earch [S]pelling" },
+  { 'sk',       builtin.keymaps,                                                                    '[s]earch [k]eymaps' },
+  { 'sw',       builtin.grep_string,                                                                '[s]earch current [w]ord' },
+  { 'C',        function() builtin.find_files { themes.get_ivy(), cwd = "~/.config/nvim/lua" } end, '[S]earch [C]onfiguration' }
+}
+
 local opts = {
   defaults = {
     layout_strategy = 'horizontal',
@@ -9,8 +41,8 @@ local opts = {
       prompt_position = 'bottom',
     },
     mappings = {
-      n = default_keymaps,
-      i = default_keymaps,
+      n = global_keymaps,
+      i = global_keymaps,
     },
   },
   extensions = {
@@ -22,51 +54,9 @@ local opts = {
     },
   }
 }
-local ts = require 'telescope'
 
 ts.setup(opts)
 ts.load_extension 'fzf'
 
-local themes = require "telescope.themes"
-local dropdown = themes.get_dropdown {
-  winblend = 10,
-  previewer = false,
-}
-local ivy = themes.get_ivy()
-local builtin = require 'telescope.builtin'
 
-local leaderNmap = require 'utils'.leader_nmap
-
-leaderNmap('?', builtin.oldfiles, '[?] Find recently opened files')
-leaderNmap('<leader>', function()
-  builtin.buffers(themes.get_ivy())
-end, '[ ] Find existing buffers')
-leaderNmap('/', function()
-  builtin.current_buffer_fuzzy_find(dropdown)
-end, '[/] Fuzzily search in current buffer')
-
--- NOTE: None LSP functionality
-leaderNmap('sF', function() builtin.find_files { hidden = true, } end,
-  '[S]earch All [F]iles (including hidden)')
-leaderNmap('sf', builtin.find_files,
-  '[S]earch [F]iles')
-leaderNmap('sh', builtin.help_tags, '[s]earch [h]elp')
-leaderNmap('sH', builtin.search_history, '[s]earch [H]istory')
-leaderNmap('sg', builtin.live_grep, '[s]earch by [g]rep')
-leaderNmap('sr', builtin.resume, '[s]earch [r]esume')
-leaderNmap('sR', builtin.registers, '[s]earch [r]egisters')
-leaderNmap('sS', function()
-    builtin.spell_suggest(themes.get_cursor { border = true })
-  end,
-  "[s]earch [S]pelling")
-leaderNmap('sk', builtin.keymaps, '[s]earch [k]eymaps')
-leaderNmap('sw', builtin.grep_string, '[s]earch current [w]ord')
-
--- Config
-leaderNmap('C', function()
-    builtin.find_files {
-      themes.get_ivy(),
-      cwd = "~/.config/nvim/lua" }
-  end,
-  '[S]earch [C]onfiguration'
-)
+batchMap(ts_mappings, leaderNmap)

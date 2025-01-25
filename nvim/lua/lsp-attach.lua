@@ -1,5 +1,7 @@
 local cmd = require("utils").custom_buf_user_command
+local batchMap = require('utils').batchMap
 local ts = require("telescope.builtin")
+local actions_preview = require 'actions-preview'
 
 local set = vim.keymap.set
 local del = vim.keymap.del
@@ -17,30 +19,38 @@ local function configure_lsp(bufnr)
 
 	local lspbuf = vim.lsp.buf
 
-	buf_leader_nmap("h", lspbuf.hover, "[h]over")
-	buf_leader_nmap("k", lspbuf.signature_help, "Signature [H]elp")
-	set({ "i", "s", "v" }, "<C-k>", lspbuf.signature_help, { desc = "Signature Help", buffer = bufnr })
-	buf_leader_nmap("rn", lspbuf.rename, "[r]e[n]ame")
+	local mappings = {
+		{ "t",  ts.lsp_type_definitions,          "[t]ype Definition" },
+		{ "Q",  vim.lsp.codelens.run,             "[Q]ode lense" },
+		-- Document
+		{ "d",  ts.lsp_document_symbols,          "[d]ocument Symbols" },
+		-- Wocument lmao
+		-- Workspace
+		{ "w",  ts.lsp_workspace_symbols,         "[w]ocument Symbols" },
+		{ "ss", ts.lsp_dynamic_workspace_symbols, "[s]earch [s]ymbols" },
+		{ "h",  lspbuf.hover,                     "[h]over" },
+		{ "k",  lspbuf.signature_help,            "Signature [H]elp" },
+		{ "rn", lspbuf.rename,                    "[r]e[n]ame" },
+		-- Code actions
+		{ "c",  actions_preview.code_actions,     "[c]ode action" },
+		-- Hints
+		{ "Lt", "<Cmd>ToggleHints<CR>",           "[T]oggle hints" },
+	}
+
+	batchMap(mappings, buf_leader_nmap)
+
+
+
+
 	-- Treesitter
 	buf_nmap("gd", ts.lsp_definitions, "[g]oto [d]efinition")
 	buf_nmap("gr", function()
 		ts.lsp_references({ include_declaration = false, include_current_line = false })
 	end, "[g]oto [r]eferences")
 	buf_nmap("gI", ts.lsp_implementations, "[g]oto [i]mplementation")
-	buf_leader_nmap("t", ts.lsp_type_definitions, "[t]ype Definition")
-	buf_leader_nmap("Q", vim.lsp.codelens.run, "[Q]ode lense")
-	-- Document
-	buf_leader_nmap("d", ts.lsp_document_symbols, "[d]ocument Symbols")
-	-- Wocument lmao
-	-- Workspace
-	buf_leader_nmap("w", ts.lsp_workspace_symbols, "[w]ocument Symbols")
-	buf_leader_nmap("ss", ts.lsp_dynamic_workspace_symbols, "[s]earch [s]ymbols")
 
-	-- Code actions
-	buf_leader_nmap("c", require('actions-preview').code_actions, "[c]ode action")
 
-	-- Hints
-	buf_leader_nmap("Lt", "<Cmd>ToggleHints<CR>", "[T]oggle hints")
+	set({ "i", "s", "v" }, "<C-k>", lspbuf.signature_help, { desc = "Signature Help", buffer = bufnr })
 	cmd(bufnr, "ToggleHints", function(_)
 		require("lsp-attach.toggle_virt_text").toggle()
 	end, "Toggle Virtual Text in Buffer")

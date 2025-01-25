@@ -31,7 +31,7 @@ end
 ---@param rhs function | string
 ---@param desc string?
 function M.leader_map(mode, lhs, rhs, desc)
-	M.map(mode, ("<leader>%s"):format(lhs) , rhs, desc)
+	M.map(mode, ("<leader>%s"):format(lhs), rhs, desc)
 end
 
 ---Calls M.map, specifies using the '<leader>' prefix for the keymap and uses normal mode.
@@ -65,6 +65,13 @@ end
 
 function M.leader_nmap_cmd(lhs, rhs, desc)
 	M.leader_nmap(lhs, ("<Cmd>%s<CR>"):format(rhs), desc)
+end
+
+---Creates a bunch of mappings from an array of mappings.
+---@param mappings table
+---@param mapping_function function
+function M.batchMap(mappings, mapping_function)
+	for _, value in ipairs(mappings) do mapping_function(value[1], value[2], value[3]) end
 end
 
 return M

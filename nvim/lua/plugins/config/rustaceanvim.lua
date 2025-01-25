@@ -1,8 +1,13 @@
 local utils = require 'utils'
 local leaderNmap = utils.leader_nmap
+local batchMap = utils.batchMap
 
-leaderNmap("Rt", "<Cmd>RustLsp testables<CR>", "[R]ust [t]est")
-leaderNmap("Ra", "<Cmd>RustAnalyzer restart<CR>", "[R]ust [a]nalyzer restart")
+local mappings = {
+  { "Rt", "<Cmd>RustLsp testables<CR>",    "[R]ust [t]est" },
+  { "Ra", "<Cmd>RustAnalyzer restart<CR>", "[R]ust [a]nalyzer restart" },
+}
+
+batchMap(mappings, leaderNmap)
 
 vim.g.rustaceanvim = {
   server = {
