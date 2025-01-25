@@ -74,3 +74,5 @@ alias l='eza -bGF --header --git --color=always --group-directories-first --icon
 install_if_not_exists "bat"
 alias cat="bat"
 alias grep="rg"
+
+nu
