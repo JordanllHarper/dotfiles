@@ -1,4 +1,5 @@
-local capabilities = require("blink-cmp").get_lsp_capabilities()
+---@return lsp.ClientCapabilities
+local capabilities = function() return require("blink-cmp").get_lsp_capabilities() end
 local lspconf = require("lspconfig")
 
 vim.diagnostic.config({
@@ -11,7 +12,7 @@ vim.diagnostic.config({
 local function default_configure(server_name, user_config)
 	local user_settings = user_config or {}
 	lspconf[server_name].setup({
-		capabilities = user_settings.capabilities or capabilities,
+		capabilities = user_settings.capabilities or capabilities(),
 		on_attach = user_settings.on_attach or require("lsp-attach"),
 		on_init = user_settings.on_init,
 		settings = user_settings.settings,
@@ -41,10 +42,15 @@ default_configure("gopls")
 default_configure("ruby_lsp")
 default_configure("marksman")
 default_configure("pyright")
+local json_capabilities = capabilities()
+json_capabilities.textDocument.completion.completionItem.snippetSupport = true
+default_configure("jsonls", {
+	capabilities = json_capabilities
+})
 
 local swift_capabilities = vim.tbl_deep_extend(
 	"force",
-	capabilities,
+	capabilities(),
 	{ workspace = { didChangeWatchedFile = { dynamicRegistration = true } } }
 )
 
