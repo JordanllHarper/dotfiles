@@ -74,9 +74,8 @@ $env.ENV_CONVERSIONS = {
 }
 
 # Directories to search for scripts when calling source or use
-# The default for this is $nu.default-config-dir/scripts
 $env.NU_LIB_DIRS = [
-    ($nu.default-config-dir | path join 'scripts') # add <nushell-config-dir>/scripts
+    ($nu.default-config-dir | path join 'custom') # add <nushell-config-dir>/custom
     ($nu.data-dir | path join 'completions') # default home for nushell completions
 ]
 

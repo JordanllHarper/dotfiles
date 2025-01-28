@@ -897,7 +897,5 @@ $env.config = {
     ]
 }
 
-alias nv = nvim
-alias lg = lazygit
-
 source ~/.zoxide.nu
+source custom.nu
