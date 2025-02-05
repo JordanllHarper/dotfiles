@@ -7,3 +7,8 @@ def nvimcfg [] {
     nvim
 }
 
+def dirs [] { ls | where type == dir }
+
+alias db = fvm dart run build_runner build
+alias dw = fvm dart run build_runner watch
+alias ft = fvm flutter test
