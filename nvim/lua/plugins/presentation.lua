@@ -68,9 +68,15 @@ return {
 							return displayed_mode:sub(1, 1)
 						end,
 					},
-					{ 'buffers', },
 				},
 				lualine_b = {
+					{
+						'filename',
+						path = 1,
+						symbols = {
+							modified = "[#]",
+						},
+					},
 					{ 'diff' },
 				},
 				lualine_c = {},
