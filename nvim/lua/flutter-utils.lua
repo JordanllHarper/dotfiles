@@ -14,9 +14,10 @@ local M = {}
 
 ---@class UserOpts
 ---@field flavors string[] flavors supported
----@field emulators table<string, string>?
----@field config_callback fun(cfg: RunConfig) : RunConfig
----@field generate_flavor_run_targets boolean
+---@field emulators table<string, string>? list of platform and emulators
+---@field config_callback fun(cfg: RunConfig) : RunConfig a callback to be run before registering the config
+---@field generate_flavor_run_targets boolean whether targets should be generated based on a flavor naming scheme
+--- E.g. having a flavor "dev" and setting this to true will create a target "lib/main_dev.dart"
 
 
 
