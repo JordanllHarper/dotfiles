@@ -9,7 +9,7 @@ local M = {}
 ---@field name string
 ---@field flavor string
 ---@field device string
----@field dart_define_from_json string?
+---@field dart_define_from_file string?
 ---@field target string?
 
 ---@class UserOpts
@@ -18,6 +18,10 @@ local M = {}
 ---@field config_callback fun(cfg: RunConfig) : RunConfig a callback to be run before registering the config
 ---@field generate_flavor_run_targets boolean whether targets should be generated based on a flavor naming scheme
 --- E.g. having a flavor "dev" and setting this to true will create a target "lib/main_dev.dart"
+---@field emulators table<string, string>?
+---@field dart_define_from_file string?
+---@field config_callback (fun(cfg: RunConfig) : RunConfig)?
+---@field generate_flavor_run_targets boolean
 
 
 
@@ -39,7 +43,6 @@ function M.create_run_configuration(user_opts)
 	if user_opts and user_opts.flavors then
 		flavors = user_opts.flavors
 	end
-
 
 	local configs = {}
 	for _, flavor in pairs(flavors) do
