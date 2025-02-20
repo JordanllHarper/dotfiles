@@ -88,7 +88,7 @@ local function configure_diagnostic(bufnr)
 
 	-- Treesitter
 	buf_leader_nmap("sd", function()
-		ts.diagnostics({ bufnr = 0 })
+		ts.diagnostics()
 	end, "[S]earch [D]iagnostics (current buffer)")
 	buf_leader_nmap("sD", ts.diagnostics, "[S]earch [D]iagnostics")
 end
