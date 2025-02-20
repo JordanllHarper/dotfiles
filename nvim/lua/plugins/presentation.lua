@@ -83,7 +83,10 @@ return {
 				lualine_x = {
 					{ 'diagnostics' },
 				},
-				lualine_y = { { 'branch', }, },
+				lualine_y = {
+					{ 'branch', },
+					{ 'searchcount', },
+				},
 				lualine_z = { { 'location', },
 					{ 'progress' },
 					{ 'datetime', style = "%H:%M" },
@@ -109,7 +112,6 @@ return {
 				{ "<leader>r",  group = "[r]ename" },
 				{ "<leader>R",  group = "[R]ust" },
 				{ "<leader>s",  group = "[s]earch" },
-				{ "<leader>t",  group = "[t]erminal" },
 				{ "<leader>w",  group = "[w]orkspace" },
 			},
 		},
