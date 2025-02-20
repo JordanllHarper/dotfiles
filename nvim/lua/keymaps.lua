@@ -4,6 +4,7 @@ local leader_nmap = require("utils").leader_nmap
 
 -- Quickfix
 leader_nmap("qo", "<Cmd>copen<CR>", "[Q]uickfix [O]pen")
+leader_nmap("qc", "<Cmd>cclose<CR>", "[Q]uickfix [C]lose")
 nmap("]q", "<Cmd>cnext<CR>", "Next [Q]uickfix")
 nmap("[q", "<Cmd>cprev<CR>", "Previous [Q]uickfix")
 
