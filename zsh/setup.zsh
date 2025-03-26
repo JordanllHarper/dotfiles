@@ -44,6 +44,7 @@ alias shake="adb emu sensor set acceleration 100:100:100; sleep 1; adb emu senso
 #
 # # flutter
 alias db="fvm dart run build_runner build --delete-conflicting-outputs"
+alias dw="fvm dart run build_runner watch"
 alias cdb="fvm flutter clean && fvm dart run build_runner build --delete-conflicting-outputs"
 #
 # # cli
