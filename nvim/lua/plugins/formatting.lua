@@ -8,7 +8,10 @@ return {
 				rust = { "rustfmt" },
 				go = { "gofmt" },
 				dart = { "dart_format" },
-				json = { "deno_fmt" }
+				json = { "deno_fmt" },
+				cc = { "clang-format" },
+				cpp = { "clang-format" },
+				["_"] = { "trim_whitespace" },
 			},
 			default_format_opts = {
 				lsp_format = "fallback",

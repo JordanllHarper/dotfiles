@@ -7,7 +7,8 @@ return {
 			rust = { "rustfmt", lsp_format = "fallback" },
 			go = { "gofmt" },
 			dart = { lsp_format = "fallback" },
-			python = { "autopep8", lsp_format = "fallback" }
+			python = { "autopep8", lsp_format = "fallback" },
+			swift = { "swift-format", lsp_format = "fallback" },
 		},
 		default_format_opts = {
 			lsp_format = "fallback",

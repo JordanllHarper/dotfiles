@@ -90,6 +90,11 @@ return {
 				lualine_z = { { 'location', },
 					{ 'progress' },
 					{ 'datetime', style = "%H:%M" },
+					{
+						function()
+							return vim.fn.wordcount().words
+						end,
+					},
 				},
 			},
 		},
