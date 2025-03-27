@@ -34,6 +34,9 @@ eval "$(opam config env)"
 # # fzf
 # install_if_not_exists "fzf" "fzf"
 eval "$(fzf --zsh)"
+export FZF_ALT_C_COMMAND=""
+export KEYTIMEOUT=1
+
 
 #
 # # Java env
