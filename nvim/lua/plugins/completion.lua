@@ -41,6 +41,13 @@ return {
     version = '*',
 
     opts = {
+      cmdline = {
+        completion = {
+          menu = {
+            auto_show = true,
+          }
+        }
+      },
       snippets = {
         preset = 'luasnip',
       },
