@@ -12,6 +12,7 @@ export ZSH_CONFIG="$XDG_CONFIG_HOME/zsh"
 # source "$ZSH_CONFIG/oh-my-zsh-config.zsh"
 
 # TOOLS
+#
 # zoxide
 # install_if_not_exists "zoxide" "zoxide"
 eval "$(zoxide init zsh)"
