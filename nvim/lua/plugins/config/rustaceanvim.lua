@@ -19,8 +19,10 @@ vim.g.rustaceanvim = {
         },
         inlayHints = {
           closureCaptureHints = true,
-          closureReturnTypeHints = true,
           implicitDrops = true,
+        },
+        completion = {
+          privateEditable = true,
         }
       }
     }

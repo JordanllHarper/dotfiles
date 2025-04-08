@@ -1,13 +1,3 @@
-# Checks if an application is installed
-# If it is not run `brew install`
-# install_if_not_exists () {
-#     command=$(which -s $1)
-#     if ! command; then
-#        brew install $2
-#     fi
-# }
-
-
 # editor
 export EDITOR="nvim"
 
@@ -19,7 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CONFIG="$XDG_CONFIG_HOME/zsh"
 
 # oh my zsh setup
-source "$ZSH_CONFIG/oh-my-zsh-config.zsh"
+# source "$ZSH_CONFIG/oh-my-zsh-config.zsh"
 
 # TOOLS
 # zoxide
@@ -27,7 +17,7 @@ source "$ZSH_CONFIG/oh-my-zsh-config.zsh"
 eval "$(zoxide init zsh)"
 
 #
-#opam (ocaml)
+# opam (ocaml)
 eval "$(opam config env)"
 
 #
@@ -36,16 +26,7 @@ eval "$(opam config env)"
 eval "$(fzf --zsh)"
 export FZF_ALT_C_COMMAND=""
 export KEYTIMEOUT=1
-
-
-#
-# # Java env
-# install_if_not_exists "jenv" "jenv"
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
-# oh my zsh
-source "$ZSH_CONFIG/oh-my-zsh-config.zsh"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # neovim
 alias nvimcfg='nvim ~/.config/nvim/'
@@ -82,3 +63,4 @@ alias code_files="$HOME/code_to_file.sh/code_files.sh"
 # VARIABLES
 # config
 bindkey -v
+
