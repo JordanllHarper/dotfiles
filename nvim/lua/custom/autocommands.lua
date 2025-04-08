@@ -1,4 +1,5 @@
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+local capabilities = function() return require("blink-cmp").get_lsp_capabilities() end
 
 vim.api.nvim_create_autocmd('TextYankPost', {
 	callback = function()
