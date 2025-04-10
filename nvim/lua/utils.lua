@@ -59,10 +59,13 @@ function M.custom_user_command(name, command, desc)
 	vim.api.nvim_create_user_command(name, command, { desc = desc })
 end
 
-function M.map_vim_command(mode, lhs, rhs, desc)
+function M.map_command(mode, lhs, rhs, desc)
 	M.map(mode, lhs, ("<Cmd>%s<CR>"):format(rhs), desc)
 end
 
+---@param lhs string
+---@param rhs string | function
+---@param desc string
 function M.leader_nmap_cmd(lhs, rhs, desc)
 	M.leader_nmap(lhs, ("<Cmd>%s<CR>"):format(rhs), desc)
 end
@@ -70,7 +73,7 @@ end
 ---Creates a bunch of mappings from an array of mappings.
 ---@param mappings table
 ---@param mapping_function function
-function M.batchMap(mappings, mapping_function)
+function M.batch_map(mappings, mapping_function)
 	for _, value in ipairs(mappings) do mapping_function(value[1], value[2], value[3]) end
 end
 

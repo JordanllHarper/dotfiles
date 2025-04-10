@@ -1,6 +1,6 @@
 local utils = require 'utils'
 local leaderNmap = utils.leader_nmap
-local batchMap = utils.batchMap
+local batchMap = utils.batch_map
 
 local mappings = {
   { "Rt", "<Cmd>RustLsp testables<CR>",    "[R]ust [t]est" },

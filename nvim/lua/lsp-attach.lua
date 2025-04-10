@@ -1,5 +1,5 @@
 local cmd = require("utils").custom_buf_user_command
-local batchMap = require('utils').batchMap
+local batchMap = require('utils').batch_map
 local ts = require("telescope.builtin")
 local actions_preview = require 'actions-preview'
 
@@ -20,7 +20,7 @@ local function configure_lsp(bufnr)
 	local lspbuf = vim.lsp.buf
 
 	local mappings = {
-		{ "t",  ts.lsp_type_definitions,          "[t]ype Definition" },
+		{ "T",  ts.lsp_type_definitions,          "[t]ype Definition" },
 		{ "Q",  vim.lsp.codelens.run,             "[Q]ode lense" },
 		-- Document
 		{ "d",  ts.lsp_document_symbols,          "[d]ocument Symbols" },

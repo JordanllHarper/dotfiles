@@ -3,7 +3,7 @@ local themes = require 'telescope.themes'
 local actions = require 'telescope.actions'
 local builtin = require 'telescope.builtin'
 local leaderNmap = require 'utils'.leader_nmap
-local batchMap = require 'utils'.batchMap
+local batchMap = require 'utils'.batch_map
 
 local global_keymaps = {
   ['<C-b>'] = actions.delete_buffer,

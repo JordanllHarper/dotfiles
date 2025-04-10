@@ -10,20 +10,6 @@ nmap("[q", "<Cmd>cprev<CR>", "Previous [Q]uickfix")
 
 -- Terminal
 
-vim.api.nvim_create_user_command(
-	"SplitTerm",
-	function()
-		vim.cmd("hor split")
-		vim.cmd("winc j")
-		vim.cmd.term()
-	end,
-	{}
-)
-
-leader_nmap("T", function()
-	vim.cmd("SplitTerm")
-end, "[t]erminal")
---
 map("t", "<C-q>", "<C-\\><C-n>", { silent = true, desc = "[Q]uit terminal mode" })
 
 -- lua files

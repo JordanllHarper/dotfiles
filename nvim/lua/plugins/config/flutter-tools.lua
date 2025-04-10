@@ -4,7 +4,7 @@ local log = require 'flutter-tools.log'
 local lsp = require 'flutter-tools.lsp'
 local telescope = require 'telescope'
 local leaderNmap = require "utils".leader_nmap
-local batchMap = require 'utils'.batchMap
+local batchMap = require 'utils'.batch_map
 
 local mappings = {
 	{ "Frl", cmd.reload,                  "[F]lutter [r]e[l]oad" },
