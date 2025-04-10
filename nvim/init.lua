@@ -56,7 +56,7 @@ require("lazy").setup {
   { import = "themes" },
 }
 
-vim.cmd([[colorscheme kanagawa]])
+vim.cmd([[colorscheme kanagawa-dragon]])
 leader_nmap("ln", "<Cmd>Lazy<CR>", "[l]azy [n]vim")
 leader_nmap("lr", ":Lazy reload", "[l]azy [r]eload")
 -- vim: ts=2 sts=2 sw=2 et
