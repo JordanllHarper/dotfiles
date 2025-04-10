@@ -8,6 +8,8 @@ return {
 			leaderNmapCmd("gc", "Git commit", "[g]it [C]ommit")
 			leaderNmapCmd("G", "Git", "[G]it")
 			leaderNmapCmd("gp", "Git push", "[g]it [p]ush")
+			leaderNmapCmd("ga", "Git add %", "[g]it [a]dd")
+			leaderNmapCmd("gA", "Git add .", "[g]it [A]dd (all)")
 		end,
 	},
 	{

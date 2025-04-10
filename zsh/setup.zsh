@@ -23,11 +23,13 @@ eval "$(opam config env)"
 
 #
 # # fzf
-# install_if_not_exists "fzf" "fzf"
 eval "$(fzf --zsh)"
 export FZF_ALT_C_COMMAND=""
 export KEYTIMEOUT=1
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# zsh-autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # neovim
 alias nvimcfg='nvim ~/.config/nvim/'
@@ -65,4 +67,4 @@ alias code_files="$HOME/code_to_file.sh/code_files.sh"
 # VARIABLES
 # config
 bindkey -v
-
+bindkey '^y' autosuggest-accept

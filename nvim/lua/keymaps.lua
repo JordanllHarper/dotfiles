@@ -55,10 +55,10 @@ end, "Delete buffer (override)")
 
 -- tabs
 leader_nmap(">", function()
-	vim.cmd("tnext")
+	vim.cmd("tabnext")
 end, "Next tab")
 leader_nmap("<", function()
-	vim.cmd("tprevious")
+	vim.cmd("tabprevious")
 end, "Previous tab")
 
 leader_nmap("x", function()

@@ -18,7 +18,8 @@ return {
 		opts = {
 			latex = {
 				enabled = false
-			}
+			},
+			completions = { blink = { enabled = true } }
 		},
 		dependencies = {
 			'nvim-treesitter/nvim-treesitter',

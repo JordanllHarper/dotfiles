@@ -59,7 +59,6 @@ return {
       },
       keymap = {
         preset = 'default',
-        ['<C-l>'] = { 'select_and_accept' },
         ['<C-h>'] = { 'show' },
         ['<Tab>'] = {},
       },
