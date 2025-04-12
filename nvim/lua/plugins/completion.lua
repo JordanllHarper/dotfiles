@@ -60,6 +60,8 @@ return {
       keymap = {
         preset = 'default',
         ['<C-h>'] = { 'show' },
+        ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
+        ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
         ['<Tab>'] = {},
       },
       appearance = {
