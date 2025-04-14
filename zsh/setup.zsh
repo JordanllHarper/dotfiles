@@ -7,6 +7,10 @@ export BREW="/opt/homebrew/bin"
 # zsh
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CONFIG="$XDG_CONFIG_HOME/zsh"
+CASE_SENSITIVE="true"
+
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{A-Z}={A-Za-z}' 'm:{a-z}={A-Za-z}'
 
 # oh my zsh setup
 # source "$ZSH_CONFIG/oh-my-zsh-config.zsh"
@@ -68,3 +72,4 @@ alias code_files="$HOME/code_to_file.sh/code_files.sh"
 # config
 bindkey -v
 bindkey '^y' autosuggest-accept
+
