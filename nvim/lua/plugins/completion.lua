@@ -1,11 +1,11 @@
 return {
   {
     "L3MON4D3/LuaSnip",
-    dependencies = "rafamadriz/friendly-snippets",
+    dependencies = { "rafamadriz/friendly-snippets", enabled = false },
     version = "v2.*",
     build = "make install_jsregexp",
     config = function()
-      require("luasnip.loaders.from_vscode").lazy_load()
+      require('luasnip.loaders.from_vscode').lazy_load()
       local ls = require 'luasnip'
       local map = require('utils').map
 
@@ -20,17 +20,26 @@ return {
       end
 
       -- jump backwards
-      map({ 'n', 'i', 's' }, "<C-a>", function()
+      map({ 'n', 'i', 's' }, "<C-h>", function()
         if ls.jumpable() then
           ls.jump(-1)
         end
       end)
 
       -- jump forwards
-      map({ 'n', 'i', 's' }, "<C-b>", function()
+      map({ 'n', 'i', 's' }, "<C-l>", function()
         if ls.jumpable() then
           ls.jump(1)
         end
+      end)
+
+      -- change forwards
+      map({ 'n', 'i', 's' }, "<C-j>", function()
+        ls.change_choice(1)
+      end)
+      -- change backwards
+      map({ 'n', 'i', 's' }, "<C-k>", function()
+        ls.change_choice(-1)
       end)
     end
   },
@@ -59,9 +68,7 @@ return {
       },
       keymap = {
         preset = 'default',
-        ['<C-h>'] = { 'show' },
-        ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
-        ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
+        ['<C-s>'] = { 'show' },
         ['<Tab>'] = {},
       },
       appearance = {
