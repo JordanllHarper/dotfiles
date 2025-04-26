@@ -12,8 +12,7 @@ local M = {}
 ---@field flavors string[] flavors supported
 ---@field emulators table<string, string>? list of platform and emulators
 ---@field config_callback fun(cfg: flutter.ProjectConfig) : flutter.ProjectConfig a callback to be run before registering the config
----@field generate_flavor_run_targets boolean? whether targets should be generated based on a flavor naming scheme. Defaults to False
---- E.g. having a flavor "dev" and setting this to true will create a target "lib/main_dev.dart"
+---@field generate_flavor_run_targets boolean? whether targets should be generated based on a flavor naming scheme. E.g. having a flavor "dev" and setting this to true will create a target "lib/main_dev.dart". Defaults to False.
 ---
 ---@field dart_define_from_file? string json file to source
 ---@field dart_define? {[string]: string}
@@ -28,20 +27,16 @@ end
 ---@param user_opts UserOpts? any specific run configurations and device overrides
 ---@return flutter.ProjectConfig[]
 function M.create_run_configuration(user_opts)
-	local emulators = M.emulators
-	if user_opts and user_opts.emulators ~= nil then
-		emulators = user_opts.emulators
-	end
+	local emulators = user_opts and user_opts.emulators or M.emulators
 
 	local flavors = M.flavors
 	if user_opts and user_opts.flavors then
 		flavors = user_opts.flavors
 	end
 
-	local configs = {}
+	local target, configs = "lib/main.dart", {}
 	for _, flavor in pairs(flavors) do
 		for name, device in pairs(emulators) do
-			local target = "lib/main.dart"
 			if user_opts and user_opts.generate_flavor_run_targets == true then
 				target = create_flavor_run_target(flavor)
 			end
