@@ -109,6 +109,7 @@ return {
 				{ "<leader>c",  group = "[c]ode" },
 				{ "<leader>D",  group = "[D]ebug" },
 				{ "<leader>Ds", group = "[s]tep..." },
+				{ "<leader>g",  group = "[g]it..." },
 				{ "<leader>g",  group = "[g]it" },
 				{ "<leader>l",  group = "[l]azy" },
 				{ "<leader>L",  group = "[L]sp" },
