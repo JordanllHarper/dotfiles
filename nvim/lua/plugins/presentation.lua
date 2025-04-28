@@ -16,10 +16,9 @@ return {
 	{
 		'MeanderingProgrammer/render-markdown.nvim',
 		opts = {
-			latex = {
-				enabled = false
-			},
-			completions = { blink = { enabled = true } }
+			latex = { enabled = false },
+			completions = { blink = { enabled = true } },
+			code = { enabled = false }
 		},
 		dependencies = {
 			'nvim-treesitter/nvim-treesitter',
@@ -35,7 +34,7 @@ return {
 	},
 	{
 		"stevearc/dressing.nvim",
-		enabled = false,
+		enabled = true,
 		opts = {
 			input = {
 				enabled = false,

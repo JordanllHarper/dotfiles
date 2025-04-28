@@ -20,21 +20,21 @@ local function configure_lsp(bufnr)
 	local lspbuf = vim.lsp.buf
 
 	local mappings = {
-		{ "T",  ts.lsp_type_definitions,          "[t]ype Definition" },
-		{ "Q",  vim.lsp.codelens.run,             "[Q]ode lense" },
+		{ "T",  ts.lsp_type_definitions,                           "[t]ype Definition" },
+		{ "Q",  vim.lsp.codelens.run,                              "[Q]ode lense" },
 		-- Document
-		{ "d",  ts.lsp_document_symbols,          "[d]ocument Symbols" },
+		{ "d",  ts.lsp_document_symbols,                           "[d]ocument Symbols" },
 		-- Wocument lmao
 		-- Workspace
-		{ "w",  ts.lsp_workspace_symbols,         "[w]ocument Symbols" },
-		{ "ss", ts.lsp_dynamic_workspace_symbols, "[s]earch [s]ymbols" },
-		{ "h",  lspbuf.hover,                     "[h]over" },
-		{ "k",  lspbuf.signature_help,            "Signature [H]elp" },
-		{ "rn", lspbuf.rename,                    "[r]e[n]ame" },
+		{ "w",  ts.lsp_workspace_symbols,                          "[w]ocument Symbols" },
+		{ "ss", ts.lsp_dynamic_workspace_symbols,                  "[s]earch [s]ymbols" },
+		{ "h",  function() lspbuf.hover { border = "single" } end, "[h]over" },
+		{ "k",  lspbuf.signature_help,                             "Signature [H]elp" },
+		{ "rn", lspbuf.rename,                                     "[r]e[n]ame" },
 		-- Code actions
-		{ "c",  actions_preview.code_actions,     "[c]ode action" },
+		{ "c",  actions_preview.code_actions,                      "[c]ode action" },
 		-- Hints
-		{ "Lt", "<Cmd>ToggleHints<CR>",           "[T]oggle hints" },
+		{ "Lt", "<Cmd>ToggleHints<CR>",                            "[T]oggle hints" },
 	}
 
 	batchMap(mappings, buf_leader_nmap)

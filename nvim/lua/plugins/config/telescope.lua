@@ -15,24 +15,24 @@ local ts_mappings = {
   { '<leader>', function() builtin.buffers(themes.get_ivy()) end, '[ ] Find existing buffers' },
   { '/', function()
     builtin.current_buffer_fuzzy_find(themes.get_dropdown {
-      previewer = false,
+      previewer = true,
       winblend = 10,
       layout_config = {
         prompt_position = "top",
       }
     })
   end, '[/] Fuzzily search in current buffer' },
-  { 'sF', function() builtin.find_files { hidden = true, } end,                              '[s]earch All [F]iles (including hidden)' },
-  { 'sf', builtin.find_files,                                                                '[s]earch [f]iles' },
-  { 'sh', builtin.help_tags,                                                                 '[s]earch [h]elp' },
-  { 'sH', builtin.search_history,                                                            '[s]earch [H]istory' },
-  { 'sg', builtin.live_grep,                                                                 '[s]earch by [g]rep' },
-  { 'sr', builtin.resume,                                                                    '[s]earch [r]esume' },
-  { 'sR', builtin.registers,                                                                 '[s]earch [R]egisters' },
-  { 'sS', function() builtin.spell_suggest(themes.get_cursor { border = true }) end,         "[s]earch [S]pelling" },
-  { 'sk', builtin.keymaps,                                                                   '[s]earch [k]eymaps' },
-  { 'sw', builtin.grep_string,                                                               '[s]earch current [w]ord' },
-  { 'C',  function() builtin.find_files(themes.get_ivy { cwd = "~/.config/nvim/lua" }) end,  '[S]earch [C]onfiguration' }
+  { 'sF', function() builtin.find_files { hidden = true, } end,                             '[s]earch All [F]iles (including hidden)' },
+  { 'sf', builtin.find_files,                                                               '[s]earch [f]iles' },
+  { 'sh', builtin.help_tags,                                                                '[s]earch [h]elp' },
+  { 'sH', builtin.search_history,                                                           '[s]earch [H]istory' },
+  { 'sg', builtin.live_grep,                                                                '[s]earch by [g]rep' },
+  { 'sr', builtin.resume,                                                                   '[s]earch [r]esume' },
+  { 'sR', builtin.registers,                                                                '[s]earch [R]egisters' },
+  { 'sS', function() builtin.spell_suggest(themes.get_cursor { border = true }) end,        "[s]earch [S]pelling" },
+  { 'sk', builtin.keymaps,                                                                  '[s]earch [k]eymaps' },
+  { 'sw', builtin.grep_string,                                                              '[s]earch current [w]ord' },
+  { 'C',  function() builtin.find_files(themes.get_ivy { cwd = "~/.config/nvim/lua" }) end, '[S]earch [C]onfiguration' }
 }
 
 local opts = {
