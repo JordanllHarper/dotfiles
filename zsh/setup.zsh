@@ -40,7 +40,6 @@ alias nvimcfg='nvim ~/.config/nvim/'
 alias cfg="nvim ~/.config/"
 alias ndir='nvim ~/notes/'
 alias nv="nvim"
-alias nvt='nvim +"lua vim.cmd([[SplitTerm]]); vim.cmd([[wincmd k]])"'
 
 # dev
 alias nvimdev="VIMRUNTIME=./runtime ./build/bin/nvim --luamod-dev"
