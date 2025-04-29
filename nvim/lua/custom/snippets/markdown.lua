@@ -59,9 +59,18 @@ end
 
 local ol = s("ol", ol_choice_fn(1))
 
+local todo = s(
+	"todo",
+	fmt(
+		"> [!TODO] {text}",
+		{ text = i(1) }
+	)
+)
+
 ls.add_snippets("markdown", {
 	ul,
 	--
-	ol
+	ol,
 	--
+	todo
 })
