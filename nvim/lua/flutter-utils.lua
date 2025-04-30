@@ -11,12 +11,13 @@ local M = {}
 ---@class UserOpts
 ---@field flavors string[] flavors supported
 ---@field emulators table<string, string>? list of platform and emulators
----@field config_callback fun(cfg: flutter.ProjectConfig) : flutter.ProjectConfig a callback to be run before registering the config
+---@field config_callback (fun(cfg: flutter.ProjectConfig) : flutter.ProjectConfig)? a callback to be run before registering the config
+---@field pre_run_callback (fun(opts: {string: string}))?
 ---@field generate_flavor_run_targets boolean? whether targets should be generated based on a flavor naming scheme. E.g. having a flavor "dev" and setting this to true will create a target "lib/main_dev.dart". Defaults to False.
 ---
 ---@field dart_define_from_file? string json file to source
 ---@field dart_define? {[string]: string}
----@field config_callback? fun(cfg: flutter.ProjectConfig) : flutter.ProjectConfig
+---@field config_callback fun(cfg: flutter.ProjectConfig)? : flutter.ProjectConfig
 
 ---@param flavor string
 ---@return string
@@ -46,7 +47,8 @@ function M.create_run_configuration(user_opts)
 				flavor = flavor,
 				target = target,
 				device = device,
-				dart_define_from_file = user_opts and user_opts.dart_define_from_file
+				dart_define_from_file = user_opts and user_opts.dart_define_from_file,
+				pre_run_callback = user_opts and user_opts.pre_run_callback,
 			}
 
 			if user_opts and user_opts.config_callback then
