@@ -127,5 +127,5 @@ return {
 		config = function()
 			require 'plugins.config.nvim-tree-devicons'
 		end
-	}
+	},
 }

@@ -1,6 +1,7 @@
 local map = vim.keymap.set
 local nmap = require("utils").nmap
 local leader_nmap = require("utils").leader_nmap
+local leader_nmap_cmd = require("utils").leader_nmap_cmd
 
 -- Quickfix
 leader_nmap("qo", "<Cmd>copen<CR>", "[Q]uickfix [O]pen")
@@ -54,3 +55,5 @@ end, "Delete tab")
 leader_nmap("X", function()
 	vim.cmd("x!")
 end, "Delete tab (override)")
+
+leader_nmap_cmd("|", "ToggleColorColumn", "Toggle Color Column [ | ]")
