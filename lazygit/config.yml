@@ -190,7 +190,7 @@ gui:
 
   # Whether to show the divergence from the base branch in the branches view.
   # One of: 'none' | 'onlyArrow'  | 'arrowAndNumber'
-  showDivergenceFromBaseBranch: onlyArrow
+  showDivergenceFromBaseBranch: none
 
   # Height of the command log view
   commandLogSize: 8
