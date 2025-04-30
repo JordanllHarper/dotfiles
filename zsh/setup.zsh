@@ -55,7 +55,18 @@ alias cdb="fvm flutter clean && fvm dart run build_runner build --delete-conflic
 #
 # # cli
 # install_if_not_exists "lazygit"
-alias lg="lazygit"
+
+lg()
+{
+    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+
+    lazygit "$@"
+
+    if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
+            cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
+            rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
+    fi
+}
 
 # install_if_not_exists "eza"
 alias ls='eza --color=always --group-directories-first --icons'
