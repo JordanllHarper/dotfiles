@@ -16,6 +16,7 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 require("vim-options")
 require("custom.filetypes")
 require("custom.autocommands")
+require("custom.commands")
 require("keymaps")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
