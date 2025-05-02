@@ -63,7 +63,7 @@ end
 ---@type table<string, string>
 M.emulators = {
 	android = "emulator-5554",
-	ios     = "iPhone 15 Pro"
+	ios     = "iPhone 16 Pro"
 }
 
 M.flavors = { "dev", "qa", "prod" }
