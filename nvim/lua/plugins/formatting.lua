@@ -10,6 +10,7 @@ return {
 				dart = { "dart_format" },
 				json = { "deno_fmt" },
 				cc = { "clang-format" },
+				ocaml = { "ocamlformat" },
 				cpp = { "clang-format" },
 				["_"] = { "trim_whitespace" },
 			},

@@ -42,6 +42,7 @@ default_configure("gopls")
 default_configure("ruby_lsp")
 default_configure("marksman")
 default_configure("pyright")
+default_configure("ocamllsp")
 
 local json_capabilities = capabilities()
 json_capabilities.textDocument.completion.completionItem.snippetSupport = true

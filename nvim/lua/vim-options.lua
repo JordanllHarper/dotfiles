@@ -75,3 +75,6 @@ vim.opt.spell = false
 vim.opt.spelllang = { 'en_us' }
 
 vim.o.guicursor = 'a:block'
+
+vim.o.list = true
+vim.o.listchars = "eol:⮑"
