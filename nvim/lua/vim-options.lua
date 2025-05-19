@@ -50,10 +50,10 @@ vim.o.timeoutlen = 300
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
-vim.o.termguicolors = true
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
+vim.opt.termguicolors = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 
 vim.o.linebreak = true
 
@@ -74,7 +74,10 @@ vim.opt.inccommand = 'split'
 vim.opt.spell = false
 vim.opt.spelllang = { 'en_us' }
 
-vim.o.guicursor = 'a:block'
-
-vim.o.list = true
-vim.o.listchars = "eol:⮑"
+vim.opt.guicursor = 'a:block'
+vim.opt.laststatus = 3
+vim.opt.list = true
+vim.opt.listchars = {
+	eol = '↴',
+	tab = "  "
+}
