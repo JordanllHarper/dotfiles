@@ -11,7 +11,7 @@ nmap("[q", "<Cmd>cprev<CR>", "Previous [Q]uickfix")
 
 -- Terminal
 
-map("t", "<S-Esc>", "<C-\\><C-n>", { silent = true, desc = "[Esc] terminal mode" })
+map("t", "<C-q>", "<C-\\><C-n>", { silent = true, desc = "[Q]uit terminal mode" })
 
 -- lua files
 leader_nmap("S", function()
