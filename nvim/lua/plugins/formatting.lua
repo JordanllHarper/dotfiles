@@ -6,7 +6,7 @@ return {
 			formatters_by_ft = {
 				lua = { "fallback" },
 				rust = { "rustfmt" },
-				go = { "gofmt" },
+				go = { "goimports" },
 				dart = { "dart_format" },
 				json = { "deno_fmt" },
 				cc = { "clang-format" },
