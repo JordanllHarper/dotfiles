@@ -110,7 +110,6 @@ return {
 		opts = {
 			preset = "modern",
 			spec = {
-				{ "<leader>c",  group = "[c]ode" },
 				{ "<leader>D",  group = "[D]ebug" },
 				{ "<leader>Ds", group = "[s]tep..." },
 				{ "<leader>g",  group = "[g]it..." },
