@@ -35,6 +35,10 @@ export KEYTIMEOUT=1
 # zsh-autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# brew
+alias bu="brew upgrade"
+alias bU="brew update"
+
 # neovim
 alias nvimcfg='nvim ~/.config/nvim/'
 alias cfg="nvim ~/.config/"
