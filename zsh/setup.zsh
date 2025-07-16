@@ -82,6 +82,9 @@ alias cat="bat"
 alias grep="rg"
 alias code_files="$HOME/code_to_file.sh/code_files.sh"
 
+# for ssh usage
+alias s="kitten ssh"
+
 # VARIABLES
 # config
 bindkey -v
