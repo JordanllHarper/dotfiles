@@ -38,6 +38,7 @@ export KEYTIMEOUT=1
 
 # zsh-autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # brew
 alias bu="brew update && brew upgrade"

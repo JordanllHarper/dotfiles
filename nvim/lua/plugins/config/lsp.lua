@@ -43,6 +43,10 @@ default_configure("ruby_lsp")
 default_configure("marksman")
 default_configure("pyright")
 default_configure("ocamllsp")
+default_configure("ts_ls")
+default_configure("cssls")
+default_configure("html")
+
 
 local json_capabilities = capabilities()
 json_capabilities.textDocument.completion.completionItem.snippetSupport = true
