@@ -1,6 +1,10 @@
 # editor
 export EDITOR="nvim"
 
+# prompt
+setopt PROMPT_SUBST
+PROMPT='%F{blue}%*%f %F{green}%~%f %F{red}->%f '
+
 # homebrew
 export BREW="/opt/homebrew/bin"
 
@@ -36,8 +40,7 @@ export KEYTIMEOUT=1
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # brew
-alias bu="brew upgrade"
-alias bU="brew update"
+alias bu="brew update && brew upgrade"
 
 # neovim
 alias nvimcfg='nvim ~/.config/nvim/'
