@@ -17,24 +17,27 @@ local function configure_lsp(bufnr)
 		set("n", "<leader>" .. keys, func, { buffer = bufnr, desc = desc })
 	end
 
+	buf_leader_nmap("Ls", "LspStart", "[s]tart")
+	buf_leader_nmap("LS", "LspStop", "[S]top")
+
 	local lspbuf = vim.lsp.buf
 
 	local mappings = {
-		{ "T",  ts.lsp_type_definitions,                           "[t]ype Definition" },
-		{ "Q",  vim.lsp.codelens.run,                              "[Q]ode lense" },
+		{ "T",  ts.lsp_type_definitions,                                    "[t]ype Definition" },
+		{ "Q",  vim.lsp.codelens.run,                                       "[Q]ode lense" },
 		-- Document
-		{ "d",  ts.lsp_document_symbols,                           "[d]ocument Symbols" },
+		{ "d",  ts.lsp_document_symbols,                                    "[d]ocument Symbols" },
 		-- Wocument lmao
 		-- Workspace
-		{ "w",  ts.lsp_workspace_symbols,                          "[w]ocument Symbols" },
-		{ "ss", ts.lsp_dynamic_workspace_symbols,                  "[s]earch [s]ymbols" },
-		{ "h",  function() lspbuf.hover { border = "single" } end, "[h]over" },
-		{ "k",  lspbuf.signature_help,                             "Signature [H]elp" },
-		{ "rn", lspbuf.rename,                                     "[r]e[n]ame" },
+		{ "w",  ts.lsp_workspace_symbols,                                   "[w]ocument Symbols" },
+		{ "ss", ts.lsp_dynamic_workspace_symbols,                           "[s]earch [s]ymbols" },
+		{ "h",  function() lspbuf.hover { border = "single" } end,          "[h]over" },
+		{ "k",  function() lspbuf.signature_help { border = "single" } end, "Signature [H]elp" },
+		{ "rn", lspbuf.rename,                                              "[r]e[n]ame" },
 		-- Code actions
-		{ "c",  actions_preview.code_actions,                      "[c]ode action" },
+		{ "c",  actions_preview.code_actions,                               "[c]ode action" },
 		-- Hints
-		{ "Lt", "<Cmd>ToggleHints<CR>",                            "[T]oggle hints" },
+		{ "Lt", "<Cmd>ToggleHints<CR>",                                     "[T]oggle hints" },
 	}
 
 	batchMap(mappings, buf_leader_nmap)
@@ -104,6 +107,7 @@ local function delete_defaults()
 	bufdel("n", "gra")
 	bufdel("n", "grr")
 	bufdel("n", "gri")
+	bufdel("n", "grt")
 	bufdel("i", "<C-S>")
 end
 

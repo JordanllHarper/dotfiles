@@ -8,8 +8,6 @@ return {
     },
     config = function()
       require 'plugins.config.lsp'
-      leader_nmap_cmd("Ls", "LspStart", "[s]tart")
-      leader_nmap_cmd("LS", "LspStop", "[S]top")
     end,
   },
 }
