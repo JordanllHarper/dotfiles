@@ -4,14 +4,10 @@ vim.diagnostic.config({
 
 vim.lsp.inlay_hint.enable(true)
 
--- !!! SETUP SERVERS !!!
-
-
 vim.lsp.config('*', {
 	capabilities = require("blink-cmp").get_lsp_capabilities()
 })
 
---- Configuration
 ---@type table<string | table<string, vim.lsp.Config>>
 local servers = {
 	"lua_ls",

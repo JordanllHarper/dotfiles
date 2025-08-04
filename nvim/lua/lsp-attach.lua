@@ -17,7 +17,6 @@ local function configure_lsp(bufnr)
 		set("n", "<leader>" .. keys, func, { buffer = bufnr, desc = desc })
 	end
 
-	buf_leader_nmap("Ls", "LspStart", "[s]tart")
 	buf_leader_nmap("LS", "LspStop", "[S]top")
 
 	local lspbuf = vim.lsp.buf

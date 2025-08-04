@@ -22,6 +22,7 @@ end, "[S]ource luafile")
 -- Lsp
 leader_nmap("Li", "<Cmd>LspInfo<CR>", "[L]sp [I]nfo")
 leader_nmap("Lr", "<Cmd>LspRestart<CR>", "[L]sp [R]estart")
+leader_nmap("Ls", "<Cmd>LspStart<CR>", "[s]tart")
 
 -- buffers
 leader_nmap("]", function()

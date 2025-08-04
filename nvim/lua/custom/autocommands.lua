@@ -1,9 +1,10 @@
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 local nvim_create_autocmd = vim.api.nvim_create_autocmd
 
-nvim_create_autocmd('BufAdd', {
+---@diagnostic disable-next-line: param-type-mismatch
+nvim_create_autocmd('TextYankPost', {
 	callback = function()
-		vim.highlight.on_yank()
+		vim.hl.on_yank()
 	end,
 	group = highlight_group,
 	pattern = '*',
@@ -34,7 +35,6 @@ nvim_create_autocmd('BufLeave', {
 nvim_create_autocmd('LspAttach', {
 	callback = function(event)
 		local buf = event.buf
-
 		require('lsp-attach')(_, buf)
 	end
 })
