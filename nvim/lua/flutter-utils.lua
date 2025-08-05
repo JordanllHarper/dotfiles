@@ -42,13 +42,13 @@ end
 ---@param config_callback (fun(cfg: flutter.ProjectConfig): flutter.ProjectConfig)?
 ---@return flutter.ProjectConfig[]
 local function handleSingleTarget(
-	emulators,
-	flavors,
-	target,
-	generate_flavor_run_targets,
-	dart_define_from_file,
-	pre_run_callback,
-	config_callback
+    emulators,
+    flavors,
+    target,
+    generate_flavor_run_targets,
+    dart_define_from_file,
+    pre_run_callback,
+    config_callback
 )
 	local configs = {}
 	for _, flavor in pairs(flavors) do

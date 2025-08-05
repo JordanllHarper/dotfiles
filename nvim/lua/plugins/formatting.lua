@@ -13,6 +13,7 @@ return {
 				typescript = { "deno_fmt" },
 				javascriptreact = { "deno_fmt" },
 				typescriptreact = { "deno_fmt" },
+				svelte = { "lsp" },
 				cc = { "clang-format" },
 				ocaml = { "ocamlformat" },
 				cpp = { "clang-format" },

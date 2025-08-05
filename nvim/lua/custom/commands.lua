@@ -1,4 +1,4 @@
-local cmd              = require('utils').custom_user_command
+local cmd = require('utils').custom_user_command
 
 local colorColumnValue = nil
 

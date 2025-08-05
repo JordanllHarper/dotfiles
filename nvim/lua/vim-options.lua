@@ -51,7 +51,7 @@ vim.o.timeoutlen = 300
 vim.o.completeopt = 'menuone,noselect'
 
 vim.opt.termguicolors = true
-vim.opt.tabstop = 4
+
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
