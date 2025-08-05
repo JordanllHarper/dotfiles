@@ -1,7 +1,7 @@
 vim.diagnostic.config(
-	{
-		signs = true
-	}
+    {
+        signs = true
+    }
 
 )
 -- Set highlight on search
@@ -79,6 +79,6 @@ vim.opt.guicursor = 'a:block'
 vim.opt.laststatus = 3
 vim.opt.list = true
 vim.opt.listchars = {
-	eol = '↴',
-	tab = "  "
+    eol = '↴',
+    tab = "  "
 }
