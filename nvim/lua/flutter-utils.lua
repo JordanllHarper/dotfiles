@@ -1,7 +1,7 @@
 ---@module "flutter-tools"
 
 ---@class FlutterUtilsConfig
----@field create_run_configurations fun(flavors : string[], user_opts : UserOpts?) : flutter.ProjectConfig[] Main entry point for creating run configurations
+---@field create_run_configurations fun(user_opts : UserOpts?) : flutter.ProjectConfig[] Main entry point for creating run configurations
 ---
 ---@type FlutterUtilsConfig
 local M = {}
@@ -132,7 +132,6 @@ end
 ---@type table<string, string>
 M.emulators = {
 	android = "emulator-5554",
-	ios     = "iPhone 16 Pro"
 }
 
 ---@type table<string>
