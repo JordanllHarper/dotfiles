@@ -23,14 +23,26 @@ return {
 				lsp_format = "fallback",
 				timeout_ms = 500,
 			},
-			format_on_save = {
-				lsp_format = "fallback",
-				timeout_ms = 500,
-			},
+			format_on_save = function()
+				if require('custom.commands').formattingEnabled then
+					return {
+						lsp_format = "fallback",
+						timeout_ms = 500,
+					}
+				else
+					return nil
+				end
+			end,
+
 		},
 		config = function(_, opts)
-			require("conform").setup(opts)
-			leaderNmap("f", require("conform").format, "[f]ormat")
+			local conform = require('conform')
+			conform.setup(opts)
+			leaderNmap("f", function()
+				if require('custom.commands').formattingEnabled then
+					conform.format()
+				end
+			end, "[f]ormat")
 		end,
 	},
 	{
